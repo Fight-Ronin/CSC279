@@ -198,7 +198,7 @@ function findLeftMostPoint(points):
 
     # Perform binary search
     while low < high:
-        mid = low + (high - low) // 2
+        mid = low + (high - low) / 2
 
         if CCW(points[mid-1], points[mid], points[mid+1]) > 0:
             # If counter-clockwise turn, mid is moving left
