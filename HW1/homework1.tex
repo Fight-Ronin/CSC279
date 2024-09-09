@@ -8,13 +8,13 @@
 \usetikzlibrary{trees}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{multirow}
+\usepackage{multirow} 
 \usepackage{dcolumn}
 \newcolumntype{2}{D{.}{}{2.0}}
 
 \title{CSC282 HW2}
 \author{Hanzhang Yin}
-\date{Sep/1/2023}
+\date{Sep/9/2023}
 
 \begin{document}
 
@@ -28,55 +28,57 @@ This algorithm computes slopes between each base point and all other points, sor
 \subsection*{Pseudocode}
 \begin{verbatim}
 # Helper Functions
-function mergeSort(array):
-    # Base Case
-    if length(array) <= 1:
-        return array
+def mergeSort(lst):
+    # Base Case: If the list has 1 or 0 elements, it is already sorted
+    if len(lst) <= 1:
+        return lst
 
-    # Divide the array into halves
-    mid = len(array) / 2
-    leftHalf = mergeSort(array{0:mid})
-    rightHalf = mergeSort(array[mid:length(array)])
+    # Find the middle index to divide the list into two halves
+    mid = len(lst) // 2
+    # Recursively sort both halves
+    leftHalf = mergeSort(lst[:mid]) 
+    rightHalf = mergeSort(lst[mid:])
 
     # Merge the two sorted halves
     return merge(leftHalf, rightHalf)
 
-function merge(left, right):
-    sortedArray = emptyList()
-    # Pointers for LEFT and RIGHT halves
-    i = 0, j = 0 
+def merge(left, right):
+    # Init. empty list
+    sortedlst = []  
+    # Pointers for left and right halves
+    i, j = 0, 0 
 
     # Merge elements from both halves in sorted order
-    while i < len(left) and j < len(right):
+    while i < i < len(left) and j < len(right):
         if left[i] <= right[j]:
-            sortedArray.append(left[i])
-            i++
+            sortedlst.append(left[i])
+            i += 1
         else: 
-            sortedArray.append(right[j])
-            j++
+            sortedlst.append(right[j])
+            j += 1
             
-    # Add any remaining elements from left half
-    while i < length(left):
-        sortedArray.append(left[i])
-        i++
+    # Add any remaining elements from the left half
+    while i < len(left):
+        sortedlst.append(left[i])
+        i += 1
 
-    # Add any remaining elements from right half
-    while j < length(right):
-        sortedArray.append(right[j])
-        j++
+    # Add any remaining elements from the right half
+    while j < len(right):
+        sortedlst.append(right[j])
+        j += 1
 
-    return sortedArray
+    return sortedlst
 
 # Main function           
 function findLinearWithMoreThanTwoPoints(points):
-    n = len(points)
+    n = len(points) - 1
 
-    for i = 1 to n:
+    for i = 0 to n:
         # Let base point be points[i] = (x_i, y_i)
         slopes = emptyList() 
 
-        # Calculate slopes with respect to the base point (x_i. y_i)
-        for j = 1 to n:
+        # Calculate slopes with respect to the base point (x_i, y_i)
+        for j = 0 to n:
             if i == j:  
                 # Skip if it's the same point
                 continue
@@ -89,7 +91,7 @@ function findLinearWithMoreThanTwoPoints(points):
                 # Special case: vertical line 
                 slope = INFINITE
             else:
-                slope = (y_j - y_i) / (x_j - x_i)
+                slope = (y_j - y_i) // (x_j - x_i)
 
             # Store the slope
             slopes.append(slope)
@@ -98,17 +100,16 @@ function findLinearWithMoreThanTwoPoints(points):
         sortedSlopes = mergeSort(slopes)
 
         # Traverse through sorted slopes to count consecutive occurrences
-        counter = 1 
-        for k = 2 to len(sortedSlopes):
+        counter = 0
+        for k = 1 to len(sortedSlopes) - 1:
             if sortedSlopes[k] == sortedSlopes[k-1]:
-                counter++
-            else:
-                # Reset Counter
-                count = 1
+                counter += 1
+                # Found a line with more than two points
+                if counter >= 1: 
+                    return True
 
     # Case where no line with more than two points found
-    return False 
-  
+    return False
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
@@ -124,46 +125,54 @@ Overall the time complexity of the algorithm is:
 \section*{Question 2}
 
 \subsection*{Idea}
-In this algorithm, calculating the slope is effective because it allows us to determine the position of the point $p = (x,y)$ relative to each line segment. Hence, we can identify which region the end belongs to. By comparing the point's position w.r.t. the segments, and leveraging their ordered arrangement, we can use binary search to find the correct part efficiently.
+In this algorithm, calculating the cross product (i.e. using CCW algorithm) is effective because it allows us to determine the position of the point $p = (x,y)$ relative to other points. Hence, we can identify which region the target point belongs to. By comparing the point's position value (NOTE: $value < 0$ indicates point is to the left of the line) , we can use binary search to find the correct part efficiently.
 
 \subsection*{Pseudocode}
 \begin{verbatim}
-function findPartition(a, b, x, y, n):
-    low = 1
-    high = n
+# Helper Function
+function CCW(Point_a, Point_b, Point_p):
+    (x1, y1) = Point_a
+    (x2, y2) = Point_b
+    (x, y) = Point_p
+
+    # Compute the cross product to determine orientation
+    return (x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)
+
+# Main Function
+function findPartition(a, b, x, y):
+    Point_p = (x, y)
+    low = 0
+    high = len(a) - 1
 
     # Binary search loop
-    while low <= high:
-        mid = (low + high) / 2
+    while low < high:
+        mid = (low + high) // 2
+        Point_a = (a[mid], 0)
+        Point_b = (b[mid], 1)
 
-        # Find the line defined by (a[mid], 0) and (b[mid], 1)
-        # Slope of the line: m = (1 - 0) / (b[mid] - a[mid]) = 1 / (b[mid] - a[mid])
-        # Line equation: y_line = m * (x - a[mid])
-        # Position of point p relative to this line: 
-        # y_line = (x - a[mid]) / (b[mid] - a[mid])
-        
-        y_line = (x - a[mid]) / (b[mid] - a[mid])
-
-        if y < y_line:
-            # Case when point p is below the line segment, updating to lower partition
-            high = mid - 1 
-        else:
-            # Case when point p is above the line segment, updating to higher partition
+        if CCW(Point_a, Point_b, Point_p) > 0:
+            # Point is to the left of the line, search in the left half
+            high = mid
+        elif CCW(Point_a, Point_b, Point_p) < 0:
+            # Point is to the right of the line, search in the right half
             low = mid + 1
+        else:
+            # Point is exactly on the line
+            return mid
 
-    # Invariant: point p is between partitions low and high
-    return low
+    # point p lies with the interval ({a[low], 0}, {b[low], 1}) AND ({a[high], 0}, {b[high], 1})
+    return low 
 
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
 \begin{itemize}
     \item Noting that Binary Search has the complexity $O(logn)$ since it divides the search space in half each time.
-    \item Calculating the slope of the line only costs $O(1)$ time.
+    \item Calculating CCW from point only costs $O(1)$ time.
 \end{itemize}
 \\
 Overall the time complexity of the algorithm is:
-\[ O(logn) + O(1) \sim O(logn) \]
+\[ O(logn) \cdot O(1) \sim O(logn) \]
 
 \section*{Question 3}
 For this question, we need to find the Gauss's Area Formula. The correct expression for the area of a simple polygon given its vertices in order is:
@@ -182,45 +191,47 @@ where \( x_n = x_0 \) and \( y_n = y_0 \). This is equivalent to the Shoelace fo
 \section*{Question 4}
 
 \subsection*{Idea}
-This algorithm uses a binary search combined with the CCW test to find the left-most point of a convex polygon efficiently. By evaluating the orientation of three consecutive points, the algorithm determines whether to move left or right based on the CCW test result, narrowing down the range to locate the left-most point.
+By leveraging the convex nature of the polygon, the algorithm iteratively narrows down the search range by comparing the x-coordinates of the current midpoint with its neighboring points. If the midpoint's x-coordinate is less than both of its ''left`` and ''right`` neighbors, it is the left-most point. Otherwise, the algorithm continues searching in the appropriate half based on the x-coordinate comparisons, ensuring a rapid convergence to the solution.
 
 \subsection*{Pseudocode}
 \begin{verbatim}
-# Helper function to compute CCW
-function CCW(A, B, C):
-    return (B[x] - A[x]) * (C[y] - A[y]) - (B[y] - A[y]) * (C[x] - A[x])
-
 function findLeftMostPoint(points):
     n = len(points)
-
-    # Init. binary search range
+    
+    # Initialize the binary search range
     low = 0
     high = n - 1
 
     # Perform binary search
     while low < high:
-        mid = low + (high - low) / 2
+        mid = (low + high) // 2
 
-        if CCW(points[mid-1], points[mid], points[mid+1]) > 0:
-            # If counter-clockwise turn, mid is moving left
-            high = mid
+        # Compare x-coordinates to find the minimum
+        if points[mid].x < points[(mid - 1 + n) % n].x AND points[mid].x < 
+        points[(mid + 1) % n].x:
+            # Found the left-most point
+            return points[mid]  
+
+        elif points[mid].x > points[(mid - 1 + n) % n].x:
+            # If the point to the left has a smaller x-coordinate, 
+            search the left half
+            high = mid - 1
         else:
-            # If clockwise turn or collinear, move right
+            # Otherwise, search the right half
             low = mid + 1
 
-    # After the binary search is completed, low points to the left-most point
+    # When low meets high, the left-most point is found
     return points[low]
-  
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
 \begin{itemize}
     \item By applying binary search in the algorithm, it costs $O(logn)$ to locate the target point.
-    \item CCW algorithm has a time complexity around $O(1)$.
+    \item x-coordinates comparison calculation only costs $O(1)$.
 \end{itemize}
 \\
 Overall the time complexity of the algorithm is:
-\[ O(logn) + O(1) \sim O(logn) \]
+\[ O(logn) \cdot O(1) \sim O(logn) \]
 
 \section*{Extra Credit: Question 5}
 
@@ -231,19 +242,18 @@ This algorithm uses  the properties of reflection and perpendicular bisectors. B
 \begin{verbatim}
 # Helper Function
 Slope_Calculator(dx, dy):
-    perp_slope = float()
     if dx == 0:
-        return perp_slope = INFINITY
+        return float('inf')
     else if dy == 0:
-        return perp_slope = 0
+        return 0
     else:
-        return perp_slope = Fraction(-dx, dy)
+        return perp_slope = -dx // dy
 
     return NONE
 
 # Main Function
 function findMaxReflectingPairs(points):
-    n = len(points)
+    n = len(points) - 1
     maxPairs = 0
 
     # Iterate all pairs of points
@@ -256,24 +266,24 @@ function findMaxReflectingPairs(points):
                 # Skip if it's the same point
                 continue 
 
-                # Cal the midpoint between points[i] and points[j]
-                mid_x = (point[i][0] - point[j][0]) / 2
-                mid_x = (point[i][1] - point[j][1]) / 2
+            # Cal the midpoint between points[i] and points[j]
+            mid_x = (points[i][0] + points[j][0]) // 2
+            mid_y = (points[i][1] + points[j][1]) // 2
 
-                # Cal. the slope opf the line pq
-                dx = points[j][0] - points[i][0]
-                dy = points[j][1] - points[i][1]
+            # Cal. the slope of the line pq
+            dx = points[j][0] - points[i][0]
+            dy = points[j][1] - points[i][1]
 
-                perp_slope = Slope_Calculator(dx, dy)
+            perp_slope = Slope_Calculator(dx, dy)
 
-                # Create unique key to represent the line
-                line = (mid_x, mid_y, perp_slope)
+            # Create unique key to represent the line
+            line = (mid_x, mid_y, perp_slope)
 
-                # Increment the count for this line
-                line_count[line] += 1
+            # Increment the count for this line
+            line_count[line] += 1
 
-            # Find the MAX number of pairs that can be reflected across a single line
-            max_pairs = max(max_pairs, max(line_count.values(), default = 0))
+        # Find the MAX number of pairs that can be reflected across a single line
+        max_pairs = max(max_pairs, max(line_count.values(), default = 0))
 
     return max_pairs
 
@@ -283,11 +293,11 @@ function findMaxReflectingPairs(points):
 \begin{itemize}
     \item The outer and inner nested for loop might cost $O(n^2)$ time 
     \item The ``Mid point'' and ``Perpendicular slope'' calculation only costs $O(1)$ 
-    \item In the worst cases of inserting and searching elements in a HashMap, we might need $O(logn)$ time to do so. (NOTE: this is placed inside the nested for loop.)
-    \item The max function is an inherent library in Python for finding the max value which in the worst case might cost $O(n)$ times.
+    \item In the worst cases of inserting and searching elements in a dictionary, we might need $O(logn)$ time to do so. (NOTE: this is operation is placed inside the nested for loop.)
+    \item The max function is from inherent library (e.g. in Python) for finding the max value which in the worst case might cost $O(n)$ times. (NOTE: this is operation is placed inside the outer for loop.)
 \end{itemize}
 \\
 Overall, the time complexity of the algorithm is:
-\[ O(n^2) \cdot O(1) \cdot O(logn) +  \sim O(n^2) \]
+\[ O(n^2) + (n^2) \cdot O(1) \cdot O(logn) \sim O(2n^2logn) \sim O(n^2logn) \]
 
 \end{document}
