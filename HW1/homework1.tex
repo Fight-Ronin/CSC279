@@ -12,7 +12,7 @@
 \usepackage{dcolumn}
 \newcolumntype{2}{D{.}{}{2.0}}
 
-\title{CSC282 HW1}
+\title{CSC282 HW2}
 \author{Hanzhang Yin}
 \date{Sep/9/2023}
 
@@ -243,7 +243,7 @@ This algorithm uses  the properties of reflection and perpendicular bisectors. B
 # Helper Function
 Slope_Calculator(dx, dy):
     if dx == 0:
-        return float('inf')
+        return INFINITY
     else if dy == 0:
         return 0
     else:
@@ -298,6 +298,6 @@ function findMaxReflectingPairs(points):
 \end{itemize}
 \\
 Overall, the time complexity of the algorithm is:
-\[ O(n^2) + (n^2) \cdot O(1) \cdot O(logn) \sim O(2n^2logn) \sim O(n^2logn) \]
+\[ O(n^2) + O(n^2) \cdot O(1) \cdot O(logn) \sim O(2n^2logn) \sim O(n^2logn) \]
 
 \end{document}

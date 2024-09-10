@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1725929633.50665 "c:/Users/yinha/Documents/CSC279/HW1/homework1.tex" "homework1.pdf" "homework1" 1725929634.28031 2
-  "c:/Users/yinha/Documents/CSC279/HW1/homework1.tex" 1725929630 11440 fd0e41e766a8ae25e6eebe937dabf305 ""
+["pdflatex"] 1725994012.08914 "c:/Users/yinha/Documents/CSC279/HW1/homework1.tex" "homework1.pdf" "homework1" 1725994012.83383 2
+  "c:/Users/yinha/Documents/CSC279/HW1/homework1.tex" 1725994009 11437 3e59e56beb903857d2abd22c01c89ba6 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1707422284 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1707423307 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1707422816 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -134,8 +134,8 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1707428605 5518052 de2a91c664d75f3971de4662dc6b5a65 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1707428714 8211064 7d8e4487f7fb5dfb1566bdc27a158ca8 ""
   "c:/texlive/2023/texmf.cnf" 1707428587 713 e69b156964470283e0530f5060668171 ""
-  "homework1.aux" 1725929634 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
-  "homework1.tex" 1725929630 11440 fd0e41e766a8ae25e6eebe937dabf305 ""
+  "homework1.aux" 1725994012 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
+  "homework1.tex" 1725994009 11437 3e59e56beb903857d2abd22c01c89ba6 ""
   (generated)
   "homework1.aux"
   "homework1.log"
