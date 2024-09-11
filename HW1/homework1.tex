@@ -236,7 +236,7 @@ Overall the time complexity of the algorithm is:
 \section*{Extra Credit: Question 5}
 
 \subsection*{Idea}
-This algorithm uses  the properties of reflection and perpendicular bisectors. By calculating the midpoint and slope of the perpendicular bisector of a line segment between two points, we can determine the required reflection line that maximized the reflection point pairs.
+This algorithm uses the properties of reflection and perpendicular bisectors. By calculating the midpoint and slope of the perpendicular bisector of a line segment between two points, we can determine the required line that maximized the reflection point pairs.
 
 \subsection*{Pseudocode}
 \begin{verbatim}
@@ -254,7 +254,9 @@ Slope_Calculator(dx, dy):
 # Main Function
 function findMaxReflectingPairs(points):
     n = len(points) - 1
-    maxPairs = 0
+    count_map = new_HashMap()
+    max_reflections = 0
+    max_line = None
 
     # Iterate all pairs of points
     for i in range(n):
@@ -276,16 +278,21 @@ function findMaxReflectingPairs(points):
 
             perp_slope = Slope_Calculator(dx, dy)
 
-            # Create unique key to represent the line
-            line = (mid_x, mid_y, perp_slope)
+            # Use midpoint and slope as key
+            key = (midpoint, slope)
 
-            # Increment the count for this line
-            line_count[line] += 1
+            # Increment count in hash map
+            if key in count_map:
+                count_map[key] += 1
+            else:
+                count_map[key] = 1
 
-        # Find the MAX number of pairs that can be reflected across a single line
-        max_pairs = max(max_pairs, max(line_count.values(), default = 0))
-
-    return max_pairs
+    # Find the maximum count and the corresponding line
+    for key, count in count_map.items():
+        if count > max_reflections:
+            max_reflections = count
+            max_line = key
+    return max_line
 
 \end{verbatim}
 
@@ -293,11 +300,10 @@ function findMaxReflectingPairs(points):
 \begin{itemize}
     \item The outer and inner nested for loop might cost $O(n^2)$ time 
     \item The ``Mid point'' and ``Perpendicular slope'' calculation only costs $O(1)$ 
-    \item In the worst cases of inserting and searching elements in a dictionary, we might need $O(logn)$ time to do so. (NOTE: this is operation is placed inside the nested for loop.)
-    \item The max function is from inherent library (e.g. in Python) for finding the max value which in the worst case might cost $O(n)$ times. (NOTE: this is operation is placed inside the outer for loop.)
+    \item Each insertion and lookup operation in the hash map takes $O(logn)$ time (If we use balanced tree map or similar implementation in the worst case)
 \end{itemize}
 \\
 Overall, the time complexity of the algorithm is:
-\[ O(n^2) + O(n^2) \cdot O(1) \cdot O(logn) \sim O(2n^2logn) \sim O(n^2logn) \]
+\[ (O(n^2) \cdot O(1) \cdot O(logn)) + O(n) \sim O(n^2logn + n) \sim O(n^2logn) \]
 
 \end{document}
