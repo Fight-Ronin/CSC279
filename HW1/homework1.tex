@@ -20,6 +20,9 @@
 
 \maketitle
 
+\subsection*{Collaborator}
+Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
+
 \section*{Question 1}
 
 \subsection*{Idea}
@@ -191,47 +194,49 @@ where \( x_n = x_0 \) and \( y_n = y_0 \). This is equivalent to the Shoelace fo
 \section*{Question 4}
 
 \subsection*{Idea}
-By leveraging the convex nature of the polygon, the algorithm iteratively narrows down the search range by comparing the x-coordinates of the current midpoint with its neighboring points. If the midpoint's x-coordinate is less than both of its ''left`` and ''right`` neighbors, it is the left-most point. Otherwise, the algorithm continues searching in the appropriate half based on the x-coordinate comparisons, ensuring a rapid convergence to the solution.
+By leveraging the convex nature of the polygon, the algorithm iteratively narrows down the search range by comparing the x-coordinates of the current midpoint with its neighboring points; and finding the tangent points of the given the polygon from the "left-most" point.
+We will get three candidates of x-minimum point by these two approaches, and we only need to return the smallest at last.
 
 \subsection*{Pseudocode}
 \begin{verbatim}
 function findLeftMostPoint(points):
     n = len(points)
-    
+
     # Initialize the binary search range
     low = 0
     high = n - 1
+    mid = 0
 
     # Perform binary search
     while low < high:
         mid = (low + high) // 2
 
         # Compare x-coordinates to find the minimum
-        if points[mid].x < points[(mid - 1 + n) % n].x AND points[mid].x < 
+        if points[mid].x <= points[(mid - 1 + n) % n].x AND points[mid].x <=
         points[(mid + 1) % n].x:
-            # Found the left-most point
-            return points[mid]  
+            break
 
-        elif points[mid].x > points[(mid - 1 + n) % n].x:
-            # If the point to the left has a smaller x-coordinate, 
-            search the left half
-            high = mid - 1
+        elif points[low].x < points[high].x:
+            high = mid + 1
         else:
-            # Otherwise, search the right half
-            low = mid + 1
+            low = mid - 1
 
-    # When low meets high, the left-most point is found
-    return points[low]
+    # Note: P stands for the given polygon topology, (-INFINITY, -INFINITY) is the ``left-most point''
+    tangent_p1, tangent_p2 = find_tangent(P, (-INFINITY, -INFINITY))
+
+    # return the point with minimum x-coordinate
+    return min_x_coordinate(tangent_p1, tangent_p2, points[m])
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
 \begin{itemize}
     \item By applying binary search in the algorithm, it costs $O(logn)$ to locate the target point.
+    \item $find_tangent()$ function in class costs $O(logn)$ time
     \item x-coordinates comparison calculation only costs $O(1)$.
 \end{itemize}
 \\
 Overall the time complexity of the algorithm is:
-\[ O(logn) \cdot O(1) \sim O(logn) \]
+\[ ( O(logn) + O(logn) + O(logn) ) \cdot O(1) \sim O(3logn) \sim O(logn) \]
 
 \section*{Extra Credit: Question 5}
 
@@ -240,60 +245,54 @@ This algorithm uses the properties of reflection and perpendicular bisectors. By
 
 \subsection*{Pseudocode}
 \begin{verbatim}
-# Helper Function
-Slope_Calculator(dx, dy):
-    if dx == 0:
-        return INFINITY
-    else if dy == 0:
-        return 0
-    else:
-        return perp_slope = -dx // dy
+function find_max_reflecting_line(points):
+    n = length(points)
+    line_map = new HashMap()
 
-    return NONE
+    # Iterate over all pairs of points
+    for i from 0 to n-1:
+        for j from i+1 to n-1:
+            # Compute midpoint
+            mid_x = (points[i].x + points[j].x) // 2
+            mid_y = (points[i].y + points[j].y) // 2
+            midpoint = (mid_x, mid_y)
 
-# Main Function
-function findMaxReflectingPairs(points):
-    n = len(points) - 1
-    count_map = new_HashMap()
-    max_reflections = 0
-    max_line = None
+            # Compute perpendicular slope
+            dx = points[j].x - points[i].x
+            dy = points[j].y - points[i].y
 
-    # Iterate all pairs of points
-    for i in range(n):
-        # Dict. to store the count of lines
-        line_count = defaultdict(int)
-
-        for j in range(n):
-            if i == j:
-                # Skip if it's the same point
-                continue 
-
-            # Cal the midpoint between points[i] and points[j]
-            mid_x = (points[i][0] + points[j][0]) // 2
-            mid_y = (points[i][1] + points[j][1]) // 2
-
-            # Cal. the slope of the line pq
-            dx = points[j][0] - points[i][0]
-            dy = points[j][1] - points[i][1]
-
-            perp_slope = Slope_Calculator(dx, dy)
-
-            # Use midpoint and slope as key
-            key = (midpoint, slope)
-
-            # Increment count in hash map
-            if key in count_map:
-                count_map[key] += 1
+            # Handle vertical line case separately
+            if dy != 0:
+                slope = -dx // dy
+                intercept = mid_y - slope * mid_x
             else:
-                count_map[key] = 1
+                # Vertical line case, x = constant (mid_x)
+                slope = Infinity
+                intercept = mid_x
+
+            # Normalize slope and intercept to avoid precision errors
+            normalized_slope = slope if slope != Infinity else None  # Handle infinite slopes
+            normalized_intercept = intercept
+
+            # Use (slope, intercept) tuple as key
+            key = (normalized_slope, normalized_intercept)
+
+            # Increment count in hash map or initialize
+            if key in line_map:
+                line_map[key] += 1
+            else:
+                line_map[key] = 1
 
     # Find the maximum count and the corresponding line
-    for key, count in count_map.items():
+    max_reflections = 0
+    max_line = None
+    for key, count in line_map.items():
         if count > max_reflections:
             max_reflections = count
             max_line = key
-    return max_line
 
+    # Return the line (slope, intercept) that has the maximum count
+    return max_line
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
@@ -304,6 +303,6 @@ function findMaxReflectingPairs(points):
 \end{itemize}
 \\
 Overall, the time complexity of the algorithm is:
-\[ (O(n^2) \cdot O(1) \cdot O(logn)) + O(n) \sim O(n^2logn + n) \sim O(n^2logn) \]
+\[ (O(n^2) \cdot O(1) \cdot O(logn)) + O(n^2) \sim O(n^2logn + n) \sim O(n^2logn) \]
 
 \end{document}
