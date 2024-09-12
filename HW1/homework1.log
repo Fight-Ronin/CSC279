@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.8)  11 SEP 2024 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.8)  11 SEP 2024 23:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -458,57 +458,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--187
  []
 
 [5]
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 229--229
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 230--230
 []        \OT1/cmtt/m/n/10 if points[mid].x <= points[(mid - 1 + n) % n].x AND points[mid].x <=[] 
  []
 
 
-Overfull \hbox (190.49533pt too wide) in paragraph at lines 229--229
+Overfull \hbox (190.49533pt too wide) in paragraph at lines 230--230
 []    \OT1/cmtt/m/n/10 # Note: P stands for the given polygon topology, (-INFINITY, -INFINITY) is the ``left-most point''[] 
  []
 
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 229--229
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 230--230
 []    \OT1/cmtt/m/n/10 tangent_p1, tangent_p2 = find_tangent(P, (-INFINITY, -INFINITY))[] 
  []
 
 
-c:/Users/yinha/Documents/CSC279/HW1/homework1.tex:238: LaTeX Error: There's no line here to end.
+c:/Users/yinha/Documents/CSC279/HW1/homework1.tex:239: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.238 O
+l.239 O
        verall the time complexity of the algorithm is:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [6]
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 296--296
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 297--297
 []            \OT1/cmtt/m/n/10 # Normalize slope and intercept to avoid precision errors[] 
  []
 
 
-Overfull \hbox (143.24574pt too wide) in paragraph at lines 296--296
+Overfull \hbox (143.24574pt too wide) in paragraph at lines 297--297
 []            \OT1/cmtt/m/n/10 normalized_slope = slope if slope != Infinity else None  # Handle infinite slopes[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 296--296
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 297--297
 []    \OT1/cmtt/m/n/10 # Return the line (slope, intercept) that has the maximum count[] 
  []
 
 [7]
 
-c:/Users/yinha/Documents/CSC279/HW1/homework1.tex:305: LaTeX Error: There's no line here to end.
+c:/Users/yinha/Documents/CSC279/HW1/homework1.tex:306: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.305 O
+l.306 O
        verall, the time complexity of the algorithm is:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -529,7 +529,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,6n,93p,490b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on homework1.pdf (8 pages, 151606 bytes).
+Output written on homework1.pdf (8 pages, 151623 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream

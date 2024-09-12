@@ -218,6 +218,7 @@ function findLeftMostPoint(points):
 
         elif points[low].x < points[high].x:
             high = mid + 1
+
         else:
             low = mid - 1
 
@@ -225,7 +226,7 @@ function findLeftMostPoint(points):
     tangent_p1, tangent_p2 = find_tangent(P, (-INFINITY, -INFINITY))
 
     # return the point with minimum x-coordinate
-    return min_x_coordinate(tangent_p1, tangent_p2, points[m])
+    return min_x_coordinate(tangent_p1, tangent_p2, points[mid])
 \end{verbatim}
 
 \subsection*{Complexity Analysis}
@@ -297,9 +298,9 @@ function find_max_reflecting_line(points):
 
 \subsection*{Complexity Analysis}
 \begin{itemize}
-    \item The outer and inner nested for loop might cost $O(n^2)$ time 
-    \item The ``Mid point'' and ``Perpendicular slope'' calculation only costs $O(1)$ 
-    \item Each insertion and lookup operation in the hash map takes $O(logn)$ time (If we use balanced tree map or similar implementation in the worst case)
+    \item The outer and inner nested for loop and the last parsing loop might cost $O(n^2)$ time.
+    \item The ``Mid point'' and ``Perpendicular slope'' calculation only costs $O(1)$.
+    \item Each insertion and lookup operation in the hash map takes $O(logn)$ time (If we use balanced tree map or similar implementation in the worst case).
 \end{itemize}
 \\
 Overall, the time complexity of the algorithm is:
