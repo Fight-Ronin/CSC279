@@ -149,6 +149,15 @@ function constructSimplePolygon(points):
 
 \section*{Question 8}
 The following code addressed the problem: counting intersections of axis-aligned segments in $O(n log n)$ time. Note that the codec is implemented in \textit{Python}.
+\\
+The algorithm uses a sweep-line technique combined with a Binary Indexed Tree (BIT) to achieve this time complexity.
+Segments are represented with endpoints and classified as horizontal or vertical; y-coordinates are compressed into integer indices for efficient BIT operations. 
+Events are created: horizontal segments generate add and remove events at their x-endpoints, while vertical segments generate query events at their x-coordinate. 
+Events are sorted by x-coordinate, processing adds before queries and queries before removes when x-values are equal. 
+As the sweep line advances, the BIT maintains the active set of horizontal segments' y-indices. 
+During query events, the BIT efficiently counts active horizontal segments overlapping the vertical segment's y-range.
+Noticing that BIT costs \( O(\log n) \) time updates and queries. Hence, the sweep line framework achieves the \( O(n \log n) \) time complexity.
+
 \begin{verbatim}
 # Axis-Aligned Segment Intersection Counting Algorithm
 # Time Complexity: O(n log n)
