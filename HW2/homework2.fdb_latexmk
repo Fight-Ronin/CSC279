@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1726634813.53163 "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" "homework2.pdf" "homework2" 1726634814.33345 2
+["pdflatex"] 1726634819.85759 "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" "homework2.pdf" "homework2" 1726634820.64496 2
   "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" 1726634806 12185 56fd68cad98d872e2032db86777eeb4e ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1707423307 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1707421856 1004 54797486969f23fa377b128694d548df ""
@@ -130,7 +130,7 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1707428605 5518052 de2a91c664d75f3971de4662dc6b5a65 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1726258801 8211078 06bfeca4e94a8218a2a5407b0723c67e ""
   "c:/texlive/2023/texmf.cnf" 1707428587 713 e69b156964470283e0530f5060668171 ""
-  "homework2.aux" 1726634814 32 1b174032087fb90900fa6203d3bb0a7e "pdflatex"
+  "homework2.aux" 1726634820 32 1b174032087fb90900fa6203d3bb0a7e "pdflatex"
   "homework2.tex" 1726634806 12185 56fd68cad98d872e2032db86777eeb4e ""
   (generated)
   "homework2.aux"
