@@ -33,7 +33,7 @@ function sortPointsLexicographically(points):
     # Time-complexity O(n log n)
     return sorted(points, key: (point.x, point.y))
 
-# Main Function
+# Main Function (Andrew's Algorithm)
 function constructSimplePolygon(points):
     # Sort points lexicographically
     sortedPoints = sortPointsLexicographically(points)
