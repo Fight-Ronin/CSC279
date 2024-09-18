@@ -254,28 +254,23 @@ def count_intersections(segments):
 Picked Probelm: \textbf{Simple Linear-Time Polygon Triangulation} 
 \\
 (https://topp.openproblem.net/p10#AGR00)
-\\
+
 \subsection*{Problem Description:}
 Polygon triangulation involves partitioning a simple polygon (a flat shape with non-intersecting edges) into non-overlapping triangles.
 This fundamental problem in computational geometry has significant applications in computer graphics, geographic information systems, and mesh generation. 
 The primary challenge lies in achieving efficient algorithms that perform this triangulation in optimal time, especially for large and complex polygons.
 
 \subsection*{Approaches and Recent Developments:}
-Chazelle's landmark 1991 algorithm was the first to achieve deterministic linear-time triangulation of a simple polygon. However, its complexity has motivated researchers to seek simpler alternatives without compromising on efficiency.
-\\
-Recent advancements have introduced both deterministic and randomized algorithms that either match or approach the linear-time performance with greater simplicity:
+Chazelle's groundbreaking 1991 algorithm was the first to achieve deterministic linear-time triangulation of a simple polygon. However, its complexity has driven researchers to seek simpler yet efficient alternatives. Recent (But not that recent) advancements include both deterministic and randomized algorithms that strive to match or approach linear-time performance with greater simplicity:
 \begin{enumerate}
     \item \textbf{Deterministic Linear-Time Algorithm: }
-    A new deterministic approach leverages the polygon-cutting theorem and the planar separator theorem to build a coarse triangulation approximation in a bottom-up phase, followed by a refinement in a top-down phase. 
-    This method eschews complex data structures like dynamic search trees, relying instead on elementary structures, thereby simplifying the implementation compared to Chazelle's original algorithm.
+    A new approach leverages the polygon-cutting and planar separator theorems to build a coarse triangulation in a bottom-up phase, followed by a top-down refinement. This method avoids complex data structures like dynamic search trees, relying instead on elementary structures, thus simplifying implementation compared to Chazelle's algorithm.
     \item \textbf{Randomized Algorithms: }
-    One randomized algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, subsequently enabling linear-time triangulation through known reductions. This approach simplifies Chazelle's method by incorporating random sampling on subchains of the polygonal chain rather than its edges.
+    One algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, enabling linear-time triangulation through known reductions. It simplifies Chazelle's method by performing random sampling on subchains of the polygon rather than its edges.
     Another incremental randomized algorithm achieves expected $O(nlog*n)$ time for trapezoidal decompositions and triangulation, offering simplicity and efficiency by utilizing basic probabilistic techniques without intricate data structures.
 \end{enumerate}
 
-\subsection*{Deterministic vs. Randomized Simplicity:}
-While randomized algorithms have made significant strides in simplifying the triangulation process with expected linear or near-linear time complexities, the quest for a deterministic linear-time algorithm that is markedly simpler than Chazelle's remains open. The deterministic method mentioned offers a promising direction by reducing dependency on complex structures, but it does not yet surpass Chazelle's algorithm in simplicity unequivocally.
-
 \subsection*{Wrap Up:}
-Although randomized algorithms have provided simpler pathways to efficient polygon triangulation, a deterministic linear-time algorithm that significantly simplifies Chazelle's approach has not been definitively established.
+Randomized algorithms have provided more straightforward methods for efficient polygon triangulation, achieving linear or near-linear time performance. However, the development of a deterministic linear-time algorithm that is significantly simpler than Chazelle’s remains an open challenge, presenting an opportunity for further research.
+
 \end{document}
