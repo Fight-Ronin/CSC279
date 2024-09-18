@@ -24,59 +24,46 @@
 
 \begin{verbatim}
 # Helper Function
-function insertPointInOrder(polygon, point):
-    # Given that the points are sorted, append to the end of the list
-    polygon.append(point)
+function CCW(p1, p2, p3):
+    #True if counter-clockwise turn
+    return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x) > 0  
 
-    # Ensure that the polygon remains simple
-    while len(polygon) >= 3 and !CCW_left(polygon[len(polygon) - 3], 
-    polygon[len(polygon) - 2], polygon[len(polygon) - 1]):
-        # Remove 2nd last element
-        polygon.pop(len(polygon) - 2)
+function sortPointsLexicographically(points):
+    # Sort the points by x-coordinate, breaking ties with y-coordinate
+    # Time-complexity O(n log n)
+    return sorted(points, key: (point.x, point.y))
 
-function CCW_left(p1, p2, p3):
-    return (p2.x - p1.x) * (p3.y - p1.y) - (p2.y - p1.y) * (p3.x - p1.x) > 0
-
-function sortPointsByAngle(points, refPoint):
-    # Sort points based on the angle they make with the reference point
-    sortedPoints = []
-    for point in points:
-        angle = calculateAngle(refPoint, point)
-        sortedPoints.append((point, angle))
-    
-    # Sort by the calculated angles (e.g. Using Merge Sort)
-    sortedPoints.sortByAngle()
-
-    return [point for point, angle in sortedPoints]
-
-function calculateAngle(p1, p2):
-    # Calculate the angle between the line from p1 -> p2 and the x-axis
-    # atan2() computes arctangent of the quotient
-    return atan2(p2.y - p1.y, p2.x - p1.x)
-
-
-
-# Main function
+# Main Function
 function constructSimplePolygon(points):
-    # Step 1: Find the convex hull using Graham Scan 
-    # (O(n log n))
-    hull = grahamScan(points)  
-    
-    # Remove points in the hull from the original set
-    remainingPoints = points.remove(hull)
-    
-    # Sort remaining points by their angle relative to a fixed point (say hull[0])
-    # O(n log n)
-    sortedPoints = sortPointsByAngle(remainingPoints, hull[0]) 
-    
-    # Construct the simple polygon
-    polygon = hull
+    # Sort points lexicographically
+    sortedPoints = sortPointsLexicographically(points)
 
-    # *Insertion logic cost O(n) at most (since each insertion takes 
-    constant time due to the sorted order)
+    # Build the upper chain
+    upperChain = []
     for point in sortedPoints:
-        insertPointInOrder(polygon, point)  
+        upperChain.append(point)
+        while len(upperChain) >= 3 and not CCW_left(upperChain[len(upperChain) - 3],
+                                                    upperChain[len(upperChain) - 2],
+                                                    upperChain[len(upperChain) - 1]):
+            # Remove the middle point to maintain the CCW property
+            upperChain.pop(len(upperChain) - 2)
 
+    # Build the lower chain
+    lowerChain = []
+    for point in reverse(sortedPoints):
+        lowerChain.append(point)
+        while len(lowerChain) >= 3 and not CCW_left(lowerChain[len(lowerChain) - 3],
+                                                    lowerChain[len(lowerChain) - 2],
+                                                    lowerChain[len(lowerChain) - 1]):
+            # Remove the middle point to maintain the CCW property
+            lowerChain.pop(len(lowerChain) - 2)
+
+    # Combine the chains to form the simple polygon
+    upperChain.pop(len(upperChain) - 1)
+    lowerChain.pop(len(lowerChain) - 1)
+    polygon = upperChain + lowerChain
+
+    # Return the polygon containing all points
     return polygon
 \end{verbatim}
 
@@ -85,7 +72,7 @@ function constructSimplePolygon(points):
 \section*{Question 7}
 
 \begin{verbatim}
-    function findVisibleSegments(segments, p):
+function findVisibleSegments(segments, p):
 
     # Collect all events (segment endpoints) and compute their angles from point p
     # Time Complexity: O(n)
@@ -94,17 +81,21 @@ function constructSimplePolygon(points):
         angleStart = computeAngle(p, segment.start)
         angleEnd = computeAngle(p, segment.end)
 
-        # Normalize angles to [0, 2π)
+        # Normalize angles to [0, 2pi)
         angleStart = normalizeAngle(angleStart)
         angleEnd = normalizeAngle(angleEnd)
 
         if angleStart <= angleEnd:
-            events.append({'angle': angleStart, 'segment': segment, 'type': 'start'})
-            events.append({'angle': angleEnd, 'segment': segment, 'type': 'end'})
+            events.append({'angle': angleStart, 'segment': segment, 
+                type': 'start'})
+            events.append({'angle': angleEnd, 'segment': segment, 
+                    'type': 'end'})
         else:
             # Segment crosses the 0 angle
-            events.append({'angle': angleStart, 'segment': segment, 'type': 'start'})
-            events.append({'angle': angleEnd + 2 * PI, 'segment': segment, 'type': 'end'})
+            events.append({'angle': angleStart, 'segment': segment, 
+                'type': 'start'})
+            events.append({'angle': angleEnd + 2 * PI, 'segment': segment, 
+                'type': 'end'})
 
     # Sort all events by angle
     # Time Complexity: O(n log n)
@@ -118,7 +109,7 @@ function constructSimplePolygon(points):
     # Sweep through all sorted events to determine visibility
     # Time Complexity: O(n log n)
     for event in sortedEvents:
-        angle = event['angle'] % (2 * PI)  # Normalize angle within [0, 2π)
+        angle = event['angle'] % (2 * PI)  # Normalize angle within [0, 2pi)
         segment = event['segment']
 
         if event['type'] == 'start':
@@ -181,7 +172,7 @@ def coordinate_compress(coordinates):
 
 class BIT:
     def __init__(self, size):
-        self.size = size + 2  # +2 to avoid index issues
+        self.size = size + 2  # +2 to avoid indexing error
         self.tree = [0] * self.size
 
     def update(self, idx, val):
