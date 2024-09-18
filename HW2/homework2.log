@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.9.13)  18 SEP 2024 01:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.9.13)  18 SEP 2024 13:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -520,25 +520,59 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-[8] (./homework2.aux)
+
+Overfull \hbox (4.50082pt too wide) in paragraph at lines 259--261
+\OT1/cmr/m/n/10 Polygon tri-an-gu-la-tion in-volves par-ti-tion-ing a sim-ple poly-gon into non-overlapping
+ []
+
+
+Underfull \hbox (badness 2903) in paragraph at lines 279--280
+[]\OT1/cmr/m/n/10 Chazelle, Bernard. 1991. \Tri-an-gu-lat-ing a Sim-ple Poly-gon in Lin-
+ []
+
+
+Underfull \hbox (badness 5175) in paragraph at lines 279--280
+\OT1/cmr/m/n/10 ear Time." \OT1/cmr/m/it/10 Dis-crete & Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 6(3): 485{524.
+ []
+
+[8]
+Underfull \hbox (badness 8094) in paragraph at lines 285--286
+[]\OT1/cmr/m/n/10 Seidel, Raimund. 1991. \A Sim-ple and Fast In-cre-men-tal Ran-
+ []
+
+
+Underfull \hbox (badness 3240) in paragraph at lines 285--286
+\OT1/cmr/m/n/10 dom-ized Al-go-rithm for Com-put-ing Trape-zoidal De-com-po-si-tions and
+ []
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 285--286
+\OT1/cmr/m/n/10 for Tri-an-gu-lat-ing Poly-gons." \OT1/cmr/m/it/10 Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 1(1): 51{64.
+ []
+
+[9] (./homework2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 13290 strings out of 474222
- 266418 string characters out of 5750209
+ 13295 strings out of 474222
+ 266522 string characters out of 5750209
  1935978 words of memory out of 5000000
- 35311 multiletter control sequences out of 15000+600000
+ 35316 multiletter control sequences out of 15000+600000
  566446 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,93p,465b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,93p,469b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on homework2.pdf (8 pages, 126680 bytes).
+Output written on homework2.pdf (9 pages, 133093 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
