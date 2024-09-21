@@ -116,7 +116,8 @@ function findVisibleSegments(segments, p):
             # Compute the distance from p to the segment along the current angle
             distance = computeDistanceToSegment(p, angle, segment)
             
-            # Insert the segment into the activeSegments BST with the computed distance
+            # Insert the segment into the activeSegments
+                BST with the computed distance
             insertSegment(activeSegments, segment, distance)
             
             # Check if this segment is the closest one currently
@@ -253,7 +254,7 @@ def count_intersections(segments):
 \section*{Question 9}
 Picked Probelm: \textbf{Simple Linear-Time Polygon Triangulation} 
 \\
-(https://topp.openproblem.net/p10#AGR00)
+\url{https://topp.openproblem.net/p10#AGR00}
 
 \subsection*{Problem Description:}
 Polygon triangulation involves partitioning a simple polygon into non-overlapping triangles.
@@ -263,9 +264,9 @@ The primary challenge lies in achieving efficient algorithms that perform this t
 Chazelle's [1] groundbreaking 1991 algorithm was the first to achieve deterministic linear-time triangulation of a simple polygon. However, its complexity has driven researchers to seek simpler yet efficient alternatives. Recent (But not that recent) advancements include both deterministic and randomized algorithms that strive to match or approach linear-time performance with greater simplicity:
 \begin{enumerate}
     \item \textbf{Deterministic Linear-Time Algorithm: }
-    A new approach leverages the polygon-cutting and planar separator theorems to build a coarse triangulation in a bottom-up phase, followed by a top-down refinement[2]. This method avoids complex data structures like dynamic search trees, relying instead on elementary structures, thus simplifying implementation compared to Chazelle's algorithm.
+    A new approach leverages the polygon-cutting and planar separator theorems to build a coarse triangulation in a bottom-up phase, followed by a top-down refinement [2]. This method avoids complex data structures like dynamic search trees, relying instead on elementary structures, thus simplifying implementation compared to Chazelle's algorithm.
     \item \textbf{Randomized Algorithms: }
-    One algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, enabling linear-time triangulation through known reductions. It simplifies Chazelle's method by performing random sampling[3] on subchains of the polygon rather than its edges.
+    One algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, enabling linear-time triangulation through known reductions. It simplifies Chazelle's method by performing random sampling  [3] on subchains of the polygon rather than its edges.
     \\
     *Another incremental randomized algorithm achieves expected $O(nlog*n)$ time for trapezoidal decompositions and triangulation, utilizing basic probabilistic techniques without intricate data structures.
 \end{enumerate}
@@ -276,7 +277,7 @@ Randomized algorithms have provided more straightforward methods for efficient p
 
 \begin{thebibliography}{3}
     \bibitem{Cha91}
-    Chazelle, Bernard. 1991. “Triangulating a Simple Polygon in Linear Time.” \textit{Discrete \& Computational Geometry}, 6(3): 485–524. https://doi.org/10.1007/BF02574703.
+    Chazelle, Bernard. 1991. “Triangulating a Simple Polygon in Linear Time.” \textit{Discrete \& Computational Geometry}, 6(3): 485-524. https://doi.org/10.1007/BF02574703.
 
     \bibitem{Amato2000}
     Amato, Nancy M., Michael T. Goodrich, and Edgar A. Ramos. 2000. “Linear-Time Triangulation of a Simple Polygon Made Easier via Randomization.” In \textit{Proceedings of the 16th Annual Symposium on Computational Geometry}, 201–212. https://doi.org/10.1145/336154.336206.
