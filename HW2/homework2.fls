@@ -153,6 +153,8 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/dcolumn.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/dcolumn.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 OUTPUT homework2.aux

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726953924.56872 "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" "homework2.pdf" "homework2" 1726953925.3358 2
-  "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" 1726953922 12268 d20e1b26bb4bbbc85976744cfaf54a0c ""
+["pdflatex"] 1727042601.64946 "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" "homework2.pdf" "homework2" 1727042602.39639 2
+  "c:/Users/yinha/Documents/CSC279/HW2/homework2.tex" 1727042599 13652 48c323e2f4305596fe4b09bd2063ac56 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726718816 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1726714687 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1726714687 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -125,13 +125,14 @@
   "c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1726723300 325 f9f16d12354225b7dd52a3321f085955 ""
   "c:/texlive/2024/texmf-dist/tex/latex/tools/array.sty" 1726726195 14067 1383bd6ee23ab18ae0e796155404deb7 ""
   "c:/texlive/2024/texmf-dist/tex/latex/tools/dcolumn.sty" 1726726195 2758 86fa9d68b26327d0f1d7a6c34674f4f8 ""
+  "c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty" 1726726195 7532 d2e1111e17bfebb1607d8ffa779705ec ""
   "c:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty" 1726727010 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "c:/texlive/2024/texmf-dist/web2c/texmf.cnf" 1726714389 42007 0b741a3c21a5ca32b40e3846e75b3548 ""
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726727413 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726727685 3326051 17a08e5d0b4cf40e68af463dc2c96f40 ""
   "c:/texlive/2024/texmf.cnf" 1726727388 713 e69b156964470283e0530f5060668171 ""
-  "homework2.aux" 1726953925 98 b200052467f4584dac775cecd420b0bb "pdflatex"
-  "homework2.tex" 1726953922 12268 d20e1b26bb4bbbc85976744cfaf54a0c ""
+  "homework2.aux" 1727042602 98 b200052467f4584dac775cecd420b0bb "pdflatex"
+  "homework2.tex" 1727042599 13652 48c323e2f4305596fe4b09bd2063ac56 ""
   (generated)
   "homework2.aux"
   "homework2.log"
