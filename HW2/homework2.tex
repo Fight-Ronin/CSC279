@@ -215,6 +215,7 @@ def coordinate_compress(coordinates):
     coord_dict = {coord: idx for idx, coord in enumerate(unique_coords)}
     return coord_dict
 
+# Define Binary Indexed Tree
 class BIT:
     def __init__(self, size):
         self.size = size + 2  # +2 to avoid indexing error
