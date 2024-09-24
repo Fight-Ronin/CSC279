@@ -115,7 +115,7 @@ def constructSimplePolygon(points):
 
 \section*{Question 7}
 
-\begin{verbatim}
+\begin{comment}
 function findVisibleSegments(segments, p):
 
     # Collect all events (segment endpoints) and compute their angles from point p
@@ -177,6 +177,80 @@ function findVisibleSegments(segments, p):
             closestSegment = activeSegments.findMin()
             if closestSegment is not None:
                 visibleSegments.add(closestSegment)
+
+    return visibleSegments
+\end{comment}
+
+\begin{verbatim}
+def findVisibleSegments(segments, p):
+    events = []
+    for segment in segments:
+    # Time Complexity: O(n)
+        a = segment.start
+        b = segment.end
+        
+        # Compute angles from point p to the endpoints of the segment
+        alpha = computeAngle(p, a)
+        beta = computeAngle(p, b)
+        
+        # Normalize angles to [0, 2PI)
+        alpha = normalizeAngle(alpha)
+        beta = normalizeAngle(beta)
+        
+        if alpha > beta:
+            # Segment crosses the angle theta = 0
+            beta += 2 * math.pi
+        
+        # Add enter and exit events for the segment
+        events.append({'angle': alpha,
+            'segment': segment, 'type': 'enter'})
+        events.append({'angle': beta,
+            'segment': segment, 'type': 'exit'})
+        
+        # Handle wrap-around by adding events modulo 2PI
+        if beta >= 2 * math.pi:
+            events.append({'angle': alpha - 2 * PI,
+                'segment': segment, 'type': 'enter'})
+            events.append({'angle': beta - 2 * PI,
+                'segment': segment, 'type': 'exit'})
+    
+    # Sort all events by angle
+    # Time Complexity: O(n log n)
+    events.sort(key=lambda event: event['angle'])
+    
+    # Initialize data structures
+    # ActiveSegments is a min-heap ordered by distance from p at current angle
+    activeSegments = PriorityQueue()
+    visibleSegments = set()
+    currentSegment = None
+
+    # Process the sorted events
+    # Time Complexity: O(n log n)
+    for event in events:
+        # Normalize angle within [0, 2PI)
+        theta = event['angle'] % (2 * PI)
+        segment = event['segment']
+
+        if event['type'] == 'enter':
+            # Compute the distance from p to segment along angle theta
+            # Time Complexity: O(1)
+            distance = computeDistanceToSegmentAtAngle(p, segment, theta)
+
+            # Insert the segment into PQ
+            # Time Complexity: O(n)
+            activeSegments.insert(segment, distance)
+        elif event['type'] == 'exit':
+            # Remove the segment from PQ
+            activeSegments.remove(segment)
+
+        # Update the current closest segment
+        if not activeSegments.isEmpty():
+            closestSegment = activeSegments.findMin()
+            if closestSegment != currentSegment:
+                currentSegment = closestSegment
+                visibleSegments.add(closestSegment)
+        else:
+            currentSegment = None
 
     return visibleSegments
 \end{verbatim}
