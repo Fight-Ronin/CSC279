@@ -109,8 +109,33 @@ def constructSimplePolygon(points):
 
 \begin{verbatim}
 def findVisibleSegments(segments, p):
+    An "event" defined to be "start" and "end" points of a segments
+    # Applying MergeSort Or Similar Approach.
+    # Time Complexity: O(nlogn)
+    Events are sorted based on the angle from the point p to the start or end point
+    
+    We start at angle 0, and we split all segments at angle 0 into two segments
+    # Avoid Duplicate Counting
+    But, we increase the count only once for a segment if both segment-pieces are counted
 
-    return visibleSegments
+    Define "Active" as a balanced binary tree using a "dynamic comparator"
+    Define "VisibleSeg" as a set stored visible segement candidate.
+    Given an angle a, compare the segments based on the "distance" from p at angle a
+
+    While events are non-empty:
+        a = angle of current event
+        if current event is a start point:
+            # Comparison can be made in O(nlogn) time
+            if the segement is less than all other elements in Active:
+                count += 1
+                add segement to VisibleSeg
+            add segement to Active
+        else:
+            Remove segement from Active
+            if the smallest element in Active is not already counted yet:
+                count += 1
+                add segement to VisibleSeg
+    return VisibleSeg, count
 \end{verbatim}
 
 \newpage
