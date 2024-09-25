@@ -22,8 +22,10 @@
 
 \maketitle
 
-\section*{Question 6}
+\subsection*{Collaborator}
+Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
 
+\section*{Question 6}
 
 \begin{comment}
 # Helper Function
@@ -75,17 +77,6 @@ function constructSimplePolygon(points):
 def CCW(p1, p2, p3):
     return (p2.x - p1.x)*(p3.y - p1.y) - (p2.y - p1.y)*(p3.x - p1.x) > 0
 
-def polarAngle(p0, p1):
-    # Compute the polar angle from p0 to p1
-    return math.atan2(p1.y - p0.y, p1.x - p0.x)
-
-def distanceSquared(p0, p1):
-    return (p1.x - p0.x)**2 + (p1.y - p0.y)**2
-
-def sortPointsByPolarAngle(points, p0):
-    # Sort the points by polar angle with p0, breaking ties by distance
-    return sorted(points, key = (polarAngle(p0, p), -distanceSquared(p0, p)))
-
 # Main Function (Graham's Algorithm)
 def constructSimplePolygon(points):
     # Find the point with the lowest y-coordinate, break ties with x-coordinate
@@ -94,11 +85,12 @@ def constructSimplePolygon(points):
 
     points_except_p0 = [p for p in points if p != p0]
 
-    # Sort the points by polar angle with p0
+    # Sort the points by CCW Order with p0
     # Time-complexity O(n log n)
-    sortedPoints = sortPointsByPolarAngle(points_except_p0, p0)
+    sortedPoints = sortPointsByCCW(points_except_p0, p0)
 
     # Initialize the convex hull with point p0
+    hull = [p0]
 
     # Time-complexity O(n)
     for point in sortedPoints:
@@ -115,142 +107,8 @@ def constructSimplePolygon(points):
 
 \section*{Question 7}
 
-\begin{comment}
-function findVisibleSegments(segments, p):
-
-    # Collect all events (segment endpoints) and compute their angles from point p
-    # Time Complexity: O(n)
-    events = []
-    for segment in segments:
-        angleStart = computeAngle(p, segment.start)
-        angleEnd = computeAngle(p, segment.end)
-
-        # Normalize angles to [0, 2pi)
-        angleStart = normalizeAngle(angleStart)
-        angleEnd = normalizeAngle(angleEnd)
-
-        if angleStart <= angleEnd:
-            events.append({'angle': angleStart, 'segment': segment, 
-                type': 'start'})
-            events.append({'angle': angleEnd, 'segment': segment, 
-                    'type': 'end'})
-        else:
-            # Segment crosses the 0 angle
-            events.append({'angle': angleStart, 'segment': segment, 
-                'type': 'start'})
-            events.append({'angle': angleEnd + 2 * PI, 'segment': segment, 
-                'type': 'end'})
-
-    # Sort all events by angle
-    # Time Complexity: O(n log n)
-    sortedEvents = sortByAngle(events)
-
-    # The BST is ordered by distance from p along the current angle
-    activeSegments = emptyBST()
-
-    visibleSegments = emptySet()
-
-    # Sweep through all sorted events to determine visibility
-    # Time Complexity: O(n log n)
-    for event in sortedEvents:
-        angle = event['angle'] % (2 * PI)  # Normalize angle within [0, 2pi)
-        segment = event['segment']
-
-        if event['type'] == 'start':
-            # Compute the distance from p to the segment along the current angle
-            distance = computeDistanceToSegment(p, angle, segment)
-            
-            # Insert the segment into the activeSegments
-                BST with the computed distance
-            insertSegment(activeSegments, segment, distance)
-            
-            # Check if this segment is the closest one currently
-            closestSegment = activeSegments.findMin()
-            if closestSegment == segment:
-                # If it's the closest, add to visibleSegments
-                visibleSegments.add(segment)
-        elif event['type'] == 'end':
-            # Remove the segment from the activeSegments BST
-            removeSegment(activeSegments, segment)
-            
-            # After removal, check the new closest segment
-            closestSegment = activeSegments.findMin()
-            if closestSegment is not None:
-                visibleSegments.add(closestSegment)
-
-    return visibleSegments
-\end{comment}
-
 \begin{verbatim}
 def findVisibleSegments(segments, p):
-    events = []
-    for segment in segments:
-    # Time Complexity: O(n)
-        a = segment.start
-        b = segment.end
-        
-        # Compute angles from point p to the endpoints of the segment
-        alpha = computeAngle(p, a)
-        beta = computeAngle(p, b)
-        
-        # Normalize angles to [0, 2PI)
-        alpha = normalizeAngle(alpha)
-        beta = normalizeAngle(beta)
-        
-        if alpha > beta:
-            # Segment crosses the angle theta = 0
-            beta += 2 * math.pi
-        
-        # Add enter and exit events for the segment
-        events.append({'angle': alpha,
-            'segment': segment, 'type': 'enter'})
-        events.append({'angle': beta,
-            'segment': segment, 'type': 'exit'})
-        
-        # Handle wrap-around by adding events modulo 2PI
-        if beta >= 2 * math.pi:
-            events.append({'angle': alpha - 2 * PI,
-                'segment': segment, 'type': 'enter'})
-            events.append({'angle': beta - 2 * PI,
-                'segment': segment, 'type': 'exit'})
-    
-    # Sort all events by angle
-    # Time Complexity: O(n log n)
-    events.sort(key=lambda event: event['angle'])
-    
-    # Initialize data structures
-    # ActiveSegments is a min-heap ordered by distance from p at current angle
-    activeSegments = PriorityQueue()
-    visibleSegments = set()
-    currentSegment = None
-
-    # Process the sorted events
-    # Time Complexity: O(n log n)
-    for event in events:
-        # Normalize angle within [0, 2PI)
-        theta = event['angle'] % (2 * PI)
-        segment = event['segment']
-
-        if event['type'] == 'enter':
-            # Compute the distance from p to segment along angle theta
-            # Time Complexity: O(1)
-            distance = computeDistanceToSegmentAtAngle(p, segment, theta)
-
-            # Insert the segment into PQ
-            # Time Complexity: O(n)
-            activeSegments.insert(segment, distance)
-        elif event['type'] == 'exit':
-            # Remove the segment from PQ
-            activeSegments.remove(segment)
-
-        # Update the current closest segment
-        if not activeSegments.isEmpty():
-            closestSegment = activeSegments.findMin()
-            if closestSegment != currentSegment:
-                currentSegment = closestSegment
-                visibleSegments.add(closestSegment)
-        else:
-            currentSegment = None
 
     return visibleSegments
 \end{verbatim}
@@ -373,7 +231,7 @@ def count_intersections(segments):
 \section*{Question 9}
 Picked Probelm: \textbf{Simple Linear-Time Polygon Triangulation} 
 \\
-\url{https://topp.openproblem.net/p10#AGR00}
+\url{https://topp.openproblem.net/p10}
 
 \subsection*{Problem Description:}
 Polygon triangulation involves partitioning a simple polygon into non-overlapping triangles.
