@@ -125,7 +125,7 @@ def findVisibleSegments(segments, p):
     While events are non-empty:
         a = angle of current event
         if current event is a start point:
-            # Comparison can be made in O(nlogn) time
+            # Comparison can be made in O(logn) time by "dynamic comparator"
             if the segement is less than all other elements in Active:
                 count += 1
                 add segement to VisibleSeg
@@ -269,13 +269,15 @@ Chazelle's [1] groundbreaking 1991 algorithm was the first to achieve determinis
     A new approach leverages the polygon-cutting and planar separator theorems to build a coarse triangulation in a bottom-up phase, followed by a top-down refinement [2]. This method avoids complex data structures like dynamic search trees, relying instead on elementary structures, thus simplifying implementation compared to Chazelle's algorithm.
     \item \textbf{Randomized Algorithms: }
     One algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, enabling linear-time triangulation through known reductions. It simplifies Chazelle's method by performing random sampling  [3] on subchains of the polygon rather than its edges.
-    \\
-    *Another incremental randomized algorithm achieves expected $O(nlog*n)$ time for trapezoidal decompositions and triangulation, utilizing basic probabilistic techniques without intricate data structures.
 \end{enumerate}
 
-\subsection*{Wrap Up:}
-Randomized algorithms have provided more straightforward methods for efficient polygon triangulation, achieving linear time performance. However, the development of a deterministic linear-time algorithm that is significantly simpler than Chazelle's remains an open challenge.
-
+\subsection*{Possible Thoughts For Approaching (Topological Approach):}
+To develop a simple linear-time algorithm for polygon triangulation, we can use the ear clipping method. [4]
+First, decompose the polygon into monotone pieces using an \( O(n) \) algorithm (there exists a few currently).
+Then, apply a simplified ear clipping method to each monotone piece.
+An "ear" is a triangle formed by three consecutive vertices that lies entirely inside the polygon without containing any other vertices. 
+Since ear clipping operates efficiently on monotone polygons, this approach achieves an overall linear-time (\( O(n) + O(n) \sim O(2n) \)) algorithm and might be considered running in a simpler manner by avoiding complex data structures. 
+By clipping off ears sequentially, the polygon is completely and efficiently triangulated.
 
 \begin{thebibliography}{3}
     \bibitem{Cha91}
@@ -286,6 +288,9 @@ Randomized algorithms have provided more straightforward methods for efficient p
 
     \bibitem{Seidel1991}
     Seidel, Raimund. 1991. “A Simple and Fast Incremental Randomized Algorithm for Computing Trapezoidal Decompositions and for Triangulating Polygons.” \textit{Computational Geometry}, 1(1): 51–64. https://doi.org/10.1016/0925-7721(91)90012-4.
+
+    \bibitem{Garey1978}
+    Garey, M. R., Johnson, D. S., Preparata, F. P., & Tarjan, R. E. (1978). Triangulating a Simple Polygon. Information Processing Letters, 7(4), 175-179
 \end{thebibliography}
 
 \end{document}
