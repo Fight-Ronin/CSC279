@@ -150,6 +150,8 @@ Events are sorted by x-coordinate, processing adds before queries and queries be
 As the sweep line advances, the BIT maintains the active set of horizontal segments' y-indices. 
 During query events, the BIT efficiently counts active horizontal segments overlapping the vertical segment's y-range.
 Noticing that BIT costs \( O(\log n) \) time updates and queries. Hence, the sweep line framework achieves the \( O(n \log n) \) time complexity.
+\\
+\textit{*Note that this algorithm does not consider the case when horizontal (vertical) segment overlapping with the same horizontal (vertical) segment.}
 
 \begin{verbatim}
 # Axis-Aligned Segment Intersection Counting Algorithm
