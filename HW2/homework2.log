@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  27 SEP 2024 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  27 SEP 2024 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -561,11 +561,15 @@ might try typing `S' now just to see what is salvageable.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  13345 strings out of 473579
  267492 string characters out of 5732263
- 633977 words of memory out of 5000000
+ 633965 words of memory out of 5000000
  36005 multiletter control sequences out of 15000+600000
  566446 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

@@ -157,6 +157,9 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT ./homework2.aux
+INPUT ./homework2.aux
+INPUT homework2.aux
 OUTPUT homework2.aux
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
