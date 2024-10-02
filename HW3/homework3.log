@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  1 OCT 2024 22:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  2 OCT 2024 00:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -400,16 +400,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 [2]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 66--66
-[]    \OT1/cmtt/m/n/10 l_max # Line have max. intersections points with other segements[] 
- []
-
-
-Overfull \hbox (85.49625pt too wide) in paragraph at lines 85--85
-[]    \OT1/cmtt/m/n/10 Traverse the arrangement A to label each face with the number of double wedges[] 
- []
-
-
 Overfull \hbox (48.74657pt too wide) in paragraph at lines 91--91
 []                \OT1/cmtt/m/n/10 *c_{f'} is the count of the adjacent face before crossing e[] 
  []
@@ -425,43 +415,67 @@ Overfull \hbox (59.24648pt too wide) in paragraph at lines 93--93
  []
 
 
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 96--96
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 95--95
 []    \OT1/cmtt/m/n/10 Keep track of the face f_max with the maximum count c_max during traversal[] 
  []
 
 
-Overfull \hbox (69.74638pt too wide) in paragraph at lines 100--100
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 99--99
 []    \OT1/cmtt/m/n/10 Compute the line l_max in the primal plane corresponding to (a_max, b_max):[] 
  []
 
 
 
 [3]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 116--116
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 111--111
+[]    \OT1/cmtt/m/n/10 Simple polygon P given as a list of vertices [v1, v2, ..., vn] in order[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 113--113
+[]    \OT1/cmtt/m/n/10 Whether there exists a line l such that P is monotone w.r.t. l[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 129--129
+[]            \OT1/cmtt/m/n/10 Let Interval = [a2, a1] if a1 > a2 else [a2, a1 + 2PI][] 
+ []
+
+
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 135--135
+[]    \OT1/cmtt/m/n/10 Merge overlapping intervals in BadIntervals to get a list of disjoint intervals[] 
+ []
+
+
+
+[4]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 153--153
 []    \OT1/cmtt/m/n/10 Coefficients (a, b, c) defining the parabola y = a x^2 + b x + c[] 
  []
 
 
 
-[4] (./homework3.aux)
+[5]
+
+[6{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./homework3.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13334 strings out of 473579
- 267295 string characters out of 5732263
- 633965 words of memory out of 5000000
- 35995 multiletter control sequences out of 15000+600000
- 566100 words of font info for 68 fonts, out of 8000000 for 9000
+ 13344 strings out of 473579
+ 267521 string characters out of 5732263
+ 633963 words of memory out of 5000000
+ 36003 multiletter control sequences out of 15000+600000
+ 566435 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,93p,444b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on homework3.pdf (4 pages, 118256 bytes).
+ 84i,6n,93p,444b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on homework3.pdf (6 pages, 147873 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
