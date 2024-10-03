@@ -133,7 +133,7 @@ Output:
 Algorithm DetermineMonotonicity(P):
     BadIntervals = empty_list()
 
-    # TiIME COMPLEXITY: O(n)
+    # TIME COMPLEXITY: O(n)
     For i from i to n:
         v_prev = P[(i - 2) mod n]   
         v = P[i - 1]
@@ -147,8 +147,8 @@ Algorithm DetermineMonotonicity(P):
             Let Interval = [a2, a1] if a1 > a2 else [a2, a1 + 2PI]
             Normalize Interval to [0, 2PI)
             Add Interval to BadIntervals
-        
-    # TiIME COMPLEXITY: O(nlogn)
+
+    # TIME COMPLEXITY: O(nlogn)
     Sort BadIntervals by their start angles
     Merge overlapping intervals in BadIntervals to get a list of disjoint intervals
 
@@ -156,7 +156,6 @@ Algorithm DetermineMonotonicity(P):
         return FALSE
 
     return TRUE
-        
 \end{verbatim}
 
 \newpage

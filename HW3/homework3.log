@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  2 OCT 2024 23:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  2 OCT 2024 23:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -449,7 +449,7 @@ Overfull \hbox (90.7462pt too wide) in paragraph at lines 153--153
 
 
 [4]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 171--171
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 170--170
 []    \OT1/cmtt/m/n/10 Coefficients (a, b, c) defining the parabola y = a x^2 + b x + c[] 
  []
 
