@@ -51,7 +51,25 @@ For a fixed $x$, $y$ varies linearly with $t$ from $y = x_0x - y_0$ (when $t = 0
 The Union of all dual lines $\hat{x}(t)$ for $t \in [0,1]$ is the set of all points $(x, y)$ in the plane satisfying:
 \[ \min(y_0, y_1) \leq y - x \cdot \min(x_0, x_1) \leq \max(y_0, y_1) \]
 Equivilantly, by eliminating parameter $t$, we can get similar inequality:
-\[ (y - x_0x + y_0)(y - x_1x + y_1) \leq 0 \]
+\\
+We aim to eliminate the parameter \( t \) from the parametric equations to describe the union of dual lines \(\hat{x}(t)\).
+\\
+Solving for \( t \):
+\[
+t = \frac{y - x_0 x + y_0}{D}
+\]
+\textbf{Note:} The sign of \( D \) affects the inequality direction.
+\\
+If \( D > 0 \), then \( 0 \leq \frac{y - x_0 x + y_0}{D} \leq 1 \Rightarrow 0 \leq y - x_0 x + y_0 \leq D \).
+\\
+If \( D < 0 \), then \( 0 \geq \frac{y - x_0 x + y_0}{D} \geq 1 \Rightarrow D \leq y - x_0 x + y_0 \leq 0 \).
+\\
+Both cases can be unified by the product inequality:
+\[ (y - x_0 x + y_0)(y - x_1 x + y_1) \leq 0 \]
+This inequality describes the region between the lines \( y = x_0 x - y_0 \) and \( y = x_1 x - y_1 \), where the expressions \( y - x_0 x + y_0 \) and \( y - x_1 x + y_1 \) have opposite signs or are zero.
+\\
+Hence, the union of all dual lines is:
+\[ (y - x_0 x + y_0)(y - x_1 x + y_1) \leq 0 \]
 This inequality describes all points $(x, y)$ that lie between $y = x_0x - y_0$, $y = x_1x - y_1$. 
 which forms a region called a "double wedge".
 
