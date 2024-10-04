@@ -191,39 +191,52 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
 \newpage
 
 \section*{Question 13}
-For this question, we use given $L_1$ norm to approximate distance in the plane.
+For this question, we use an approximation to replace $L_2$ norm in order to use LP.
+
+\[
+    \begin{cases}
+        r \geq 0 \\
+        w \geq 0 \\
+        \forall i \in \{1, \ldots, n\}, \forall j \in \{1, \ldots, k\}: \\
+        \quad (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \geq r \cos\left(\frac{\pi}{k}\right) \\
+        \quad (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \leq (r + w) \sec\left(\frac{\pi}{k}\right) \\
+    \end{cases}
+\]
 
 \subsection*{Variables}
 \begin{itemize}
     \item \( c_x, c_y \): Coordinates of the center $c$ of the annulus
-    \item \( s \geq 0 \): Inner Radius 
-    \item \( t \geq 0 \): Outer Radius
-    \item For each point \( p_i = (x_i, y_i) \):
-    \begin{itemize}
-        \item $x_i^{+} > 0: |x_i - c_x|$ 
-        \item $y_i^{+} > 0: |y_i - c_x|$
-    \end{itemize}
+    \item \( r \geq 0 \): Inner Radius 
+    \item \( w \geq 0 \): Width of the annulus \( (w = R - r) \)
 \end{itemize}
 
 \subsection*{Objective Function: }
-\[ \min \ (t - s) \]
+\[ \min w  \]
 
 \subsection*{Constraint: }
-For all $i = 1$ to $n$:
 \begin{enumerate}
-    \item Non-negatively:
-    \[ s \geq 0, t \geq 0, x_i^+ \geq 0, y_i^+ \geq 0 \]
-    \item Absolute value constraints:
+    \item \(r \geq 0, \ w \geq 0 \)
+    \item To approximate $L_1$ norm, we pick $k$ directions. For a regular $k$-gon inscribed in the unit circle, define angles:
     \[
-        \begin{cases}
-            x_i - c_x \leq x_i^+ \\
-            -(x_i - c_x) \leq x_i^+ \\
-            y_i - c_y \leq y_i^+ \\
-            -(y_i - c_y) \leq y_i^+
-        \end{cases}
+        \theta_j = \frac{2\pi j}{k}, \quad j = 1, 2, \ldots, k
     \]
-    \item Distance constraints:
-    \[ s \leq x_i^+ + y_i^+ \leq t \]
+    \item Compute unit vectors in these directions:
+    \[
+        u_j = (\cos \theta_j, \sin \theta_j)
+    \]
+    \item For each point \( p_i = (p_{i,x}, p_{i,y}) \) and each direction \( u_j \):
+    \begin{itemize}
+        \item Inner Boundary Constraint:
+        \[
+            (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \geq r \cos\left(\frac{\pi}{k}\right)
+        \]
+        \item Outer Boundary Constraint:
+        \[
+            (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \leq (r + w) \sec\left(\frac{\pi}{k}\right)
+        \]
+    \end{itemize}
+    The factors \( \cos\left(\frac{\pi}{k}\right) \) and \( \sec\left(\frac{\pi}{k}\right) \) adjust for the approximation error due to replacing the circle with a regular \( k \)-gon.
 \end{enumerate}
+
 
 \end{document}
