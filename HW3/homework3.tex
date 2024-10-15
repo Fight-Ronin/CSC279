@@ -60,9 +60,11 @@ t = \frac{y - x_0 x + y_0}{D}
 \]
 \textbf{Note:} The sign of \( D \) affects the inequality direction.
 \\
-If \( D > 0 \), then \( 0 \leq \frac{y - x_0 x + y_0}{D} \leq 1 \Rightarrow 0 \leq y - x_0 x + y_0 \leq D \).
+If \( D > 0 \), then
+\[ 0 \leq \frac{y - x_0 x + y_0}{D} \leq 1 \Rightarrow 0 \leq y - x_0 x + y_0 \leq D \]
 \\
-If \( D < 0 \), then \( 0 \geq \frac{y - x_0 x + y_0}{D} \geq 1 \Rightarrow D \leq y - x_0 x + y_0 \leq 0 \).
+If \( D < 0 \), then
+\[ 0 \geq \frac{y - x_0 x + y_0}{D} \geq 1 \Rightarrow D \leq y - x_0 x + y_0 \leq 0 \]
 \\
 Both cases can be unified by the product inequality:
 \[ (y - x_0 x + y_0)(y - x_1 x + y_1) \leq 0 \]
@@ -135,7 +137,7 @@ Algorithm DetermineMonotonicity(P):
 
     # TIME COMPLEXITY: O(n)
     For i from i to n:
-        v_prev = P[(i - 2) mod n]   
+        v_prev = P[(i - 2) mod n]
         v = P[i - 1]
         v_next = P[i mod n]
         Compute vectors e1 = v - v_prev
@@ -144,15 +146,29 @@ Algorithm DetermineMonotonicity(P):
         If cp < 0 (vertex is concave):
             Compute angles a1 = atan2(e1.y, e1.x) mod 2PI
             Compute angles a2 = atan2(e2.y, e2.x) mod 2PI
-            Let Interval = [a2, a1] if a1 > a2 else [a2, a1 + 2PI]
-            Normalize Interval to [0, 2PI)
+
+            # Compute perpendicular angles
+            Theta1 = (a1 + PI/2) mod 2PI
+            Theta2 = (a2 + PI/2) mod 2PI
+
+            delta_theta = (Theta2 - Theta1) mod 2PI
+            If delta_theta > PI:
+                Swap Theta1 and Theta2
+
+            # Create Interval
+            If Theta1 <= Theta2:
+                Interval = [Theta1, Theta2]
+            Else:
+                # NOTE: 'v' denotes union
+                Interval = [Theta1, 2PI) v [0, Theta2]
+
             Add Interval to BadIntervals
 
     # TIME COMPLEXITY: O(nlogn)
     Sort BadIntervals by their start angles
     Merge overlapping intervals in BadIntervals to get a list of disjoint intervals
 
-    If the merged intervals cover [0, 2PI): 
+    If the merged intervals cover [0, 2PI):
         return FALSE
 
     return TRUE
