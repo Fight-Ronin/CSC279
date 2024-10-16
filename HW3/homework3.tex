@@ -134,7 +134,6 @@ Output:
 
 Algorithm DetermineMonotonicity(P):
     BadIntervals = empty_list()
-
     # TIME COMPLEXITY: O(n)
     For i from i to n:
         v_prev = P[(i - 2) mod n]
@@ -147,20 +146,8 @@ Algorithm DetermineMonotonicity(P):
             Compute angles a1 = atan2(e1.y, e1.x) mod 2PI
             Compute angles a2 = atan2(e2.y, e2.x) mod 2PI
 
-            # Compute perpendicular angles
-            Theta1 = (a1 + PI/2) mod 2PI
-            Theta2 = (a2 + PI/2) mod 2PI
-
-            delta_theta = (Theta2 - Theta1) mod 2PI
-            If delta_theta > PI:
-                Swap Theta1 and Theta2
-
-            # Create Interval
-            If Theta1 <= Theta2:
-                Interval = [Theta1, Theta2]
-            Else:
-                # NOTE: 'v' denotes union
-                Interval = [Theta1, 2PI) v [0, Theta2]
+            Let Interval = [a2, a1] if a1 > a2 else [a2, a1 + 2PI]
+            Normalize Interval to [0, 2PI)
 
             Add Interval to BadIntervals
 
@@ -174,6 +161,19 @@ Algorithm DetermineMonotonicity(P):
     return TRUE
 \end{verbatim}
 
+\textit{A more general description of the Algorithm: }
+\\
+For each vertex \(i\), determine if it is concave using the \textbf{counterclockwise (ccw)} test. If the ccw sign at the vertex differs from the majority, mark it as concave. For each concave vertex, compute two vectors:
+\[
+    c_0 = v(i) - v(i-1), \quad c_1 = v(i+1) - v(i).
+\]
+Calculate their angles \(a_0\) and \(a_1\) using the \texttt{atan2} function, normalized to \([0, 2\pi)\):
+\[
+    a_0 = (\text{atan2}(c_0.y, c_0.x) + 2\pi) \bmod 2\pi, \quad a_1 = (\text{atan2}(c_1.y, c_1.x) + 2\pi) \bmod 2\pi.
+\]
+Store the interval \([a_1, a_0]\) in a list.
+\\
+After processing all vertices, sort the intervals and merge any overlapping ones. If the merged intervals cover the full \(2\pi\) range, the polygon is \textbf{not monotone}. Otherwise, it is \textbf{monotone}.
 \newpage
 
 \section*{Question 12}
@@ -193,9 +193,9 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
     # TIME COMPLEXITY: O(n)
     For each red point (x_i, y_i) in RedPoints do:
         Make inequality:
-            a x_i^2 + b x_i + c - y_i < 0
+            a (x_i^2) + b (x_i) + c - y_i < 0
         Convert to standard LP form (inequalities with <=):
-            a x_i^2 + b x_i + c - y_i <= -e
+            a (x_i^2) + b (x_i) + c - y_i <= -e
         Add this to Constraints
 
     # TIME COMPLEXITY: O(n)
