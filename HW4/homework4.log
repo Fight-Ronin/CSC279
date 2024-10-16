@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  12 OCT 2024 00:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  15 OCT 2024 23:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/yinha/Documents/CSC279/HW4/homework4.tex
-(c:/Users/yinha/Documents/CSC279/HW4/homework4.tex
+**c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex
+(c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -350,7 +350,8 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count302
 \l__pdf_internal_box=\box67
-) (./homework4.aux)
+)
+No file homework4.aux.
 \openout1 = `homework4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -367,7 +368,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
- (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count303
 \scratchdimen=\dimen262
@@ -394,7 +395,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-c:/Users/yinha/Documents/CSC279/HW4/homework4.tex:27: Undefined control sequence.
+c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:27: Undefined control sequence.
 <recently read> \url 
                      
 l.27 \url
@@ -420,32 +421,32 @@ Overfull \hbox (6.11392pt too wide) in paragraph at lines 42--42
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 2903) in paragraph at lines 54--55
+Underfull \hbox (badness 2903) in paragraph at lines 55--56
 []\OT1/cmr/m/n/10 Chazelle, Bernard. 1991. \Tri-an-gu-lat-ing a Sim-ple Poly-gon in Lin-
  []
 
 
-Underfull \hbox (badness 5711) in paragraph at lines 54--55
+Underfull \hbox (badness 5711) in paragraph at lines 55--56
 \OT1/cmr/m/n/10 ear Time." \OT1/cmr/m/it/10 Dis-crete & Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 6(3): 485-524.
  []
 
 
-Underfull \hbox (badness 8094) in paragraph at lines 60--61
+Underfull \hbox (badness 8094) in paragraph at lines 61--62
 []\OT1/cmr/m/n/10 Seidel, Raimund. 1991. \A Sim-ple and Fast In-cre-men-tal Ran-
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 60--61
+Underfull \hbox (badness 3240) in paragraph at lines 61--62
 \OT1/cmr/m/n/10 dom-ized Al-go-rithm for Com-put-ing Trape-zoidal De-com-po-si-tions and
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 60--61
+Underfull \hbox (badness 2042) in paragraph at lines 61--62
 \OT1/cmr/m/n/10 for Tri-an-gu-lat-ing Poly-gons." \OT1/cmr/m/it/10 Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 1(1): 51{64.
  []
 
-c:/Users/yinha/Documents/CSC279/HW4/homework4.tex:63: Misplaced alignment tab character &.
-l.63 ...M. R., Johnson, D. S., Preparata, F. P., &
+c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:64: Misplaced alignment tab character &.
+l.64 ...M. R., Johnson, D. S., Preparata, F. P., &
                                                    Tarjan, R. E. (1978). Tri...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -467,13 +468,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 13338 strings out of 473579
- 267344 string characters out of 5732263
- 627990 words of memory out of 5000000
- 35999 multiletter control sequences out of 15000+600000
+ 13335 strings out of 473579
+ 267317 string characters out of 5732263
+ 628000 words of memory out of 5000000
+ 35998 multiletter control sequences out of 15000+600000
  566278 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,93p,469b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,93p,478b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 Output written on homework4.pdf (2 pages, 110421 bytes).
 PDF statistics:

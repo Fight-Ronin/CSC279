@@ -1,8 +1,8 @@
-PWD c:/Users/yinha/Documents/CSC279/HW4
+PWD c:/Users/yinha/OneDrive/Documents/CSC279/HW4
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/yinha/Documents/CSC279/HW4/homework4.tex
+INPUT c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex
 OUTPUT homework4.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -157,9 +157,6 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./homework4.aux
-INPUT ./homework4.aux
-INPUT homework4.aux
 OUTPUT homework4.aux
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
