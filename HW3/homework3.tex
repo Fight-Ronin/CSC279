@@ -81,7 +81,6 @@ which forms a region called a "double wedge".
 \begin{verbatim}
 Input:
     S = { s_i | i = 1 to n }
-
 output:
     l_max # Line has max. intersections point with other sections
 
@@ -120,8 +119,11 @@ Algorithm FindMaxIntersectingLine(S):
         l_max: y = a_max x - b_max
 
     Return l_max
-
 \end{verbatim}
+\\
+\textbf{A more general description of the Algorithm: }
+\\
+For this question, we convert each segment's endpoints into dual lines in the dual plane. The segments in the original plane correspond to \textbf{double wedges} (regions between two dual lines) in the dual plane. Our task becomes finding a point in the dual plane covered by the maximum number of double wedges, which corresponds to a line in the original plane intersecting the most segments. Using the \textbf{line-sweeping paradigm}, we sweep a vertical line across the dual plane, tracking how many double wedges are active as we cross intersections between dual lines. For each intersection, we update the count by adding or removing wedges, and we maintain the maximum count throughout the sweep. The point where the count is highest gives the optimal line in the original plane.
 
 \newpage
 
@@ -218,7 +220,6 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
        Output "c =", Solution.c
 
     Output "No solution exists"
-
 \end{verbatim}
 
 \newpage
