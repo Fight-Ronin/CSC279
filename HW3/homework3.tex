@@ -230,16 +230,18 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
                         & x^2 - 2xc + c^2 >= r \\
 \end{align*}
 \\
-We notice that the term $-2xc$ appears in both constraints. \\
-Since the objective is to minimize $R - r$, this term can effectively be disregarded in the constraints.
-    
+We cam remove $c^2$ since it is a common term to all Constraints.
+
 \begin{align*}
     \text{min } & R - r \\
-    \text{subject to: } & x^2 + c^2 <= R \\
-                        & x^2 + c^2 >= r \\
+    \text{subject to: } & x^2 - 2xc <= R \\
+                        & x^2 - 2xc >= r \\
 \end{align*}
 \\
-In this linear program, the terms $R$ and $r$ are made greater than previous one due to the addition of $2xc$. \\
-However, since our objective focuses on the difference of $R$ and $r$, this additional term cancels out.
+Since $c^2$ is common to all constraints, so $c^2$ is in fact a constant for all. Although the value of $c^2$ changes according to $c$, 
+it remain relatively common to all constraints. So in here, for the upward's constraints, we are making $R$ and $r$ $c^2$ smaller that their actual values.
+And noticing our LP is focusing on minimizing the difference between $R$ and $r$, subtracting $c^2$ to both of them will not make differences. 
+
+Overall, the solution will be in the ideal form (i.e. pi(R - r))
 
 \end{document}
