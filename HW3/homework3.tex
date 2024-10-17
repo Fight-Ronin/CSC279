@@ -123,7 +123,10 @@ Algorithm FindMaxIntersectingLine(S):
 \\
 \textbf{A more general description of the Algorithm: }
 \\
-For this question, we convert each segment's endpoints into dual lines in the dual plane. The segments in the original plane correspond to \textbf{double wedges} (regions between two dual lines) in the dual plane. Our task becomes finding a point in the dual plane covered by the maximum number of double wedges, which corresponds to a line in the original plane intersecting the most segments. Using the \textbf{line-sweeping paradigm}, we sweep a vertical line across the dual plane, tracking how many double wedges are active as we cross intersections between dual lines. For each intersection, we update the count by adding or removing wedges, and we maintain the maximum count throughout the sweep. The point where the count is highest gives the optimal line in the original plane.
+The algorithm leverages \textit{duality} by transforming each segment's endpoints into lines in the dual plane, resulting in \textit{double wedges}. This transformation converts the original problem into finding a point in the dual plane that lies within the maximum number of double wedges, which corresponds to a line in the original plane intersecting the most segments.
+\\
+The algorithm employs the \textit{line-sweeping} paradigm by sweeping a line (e.g., vertically) across the dual plane. As the sweep line moves, it records events where it crosses dual lines---these events correspond to entering or exiting double wedges. By updating a count of active double wedges at each event and keeping track of the maximum count throughout the sweep, the algorithm identifies the point where the maximum overlap occurs. 
+This point corresponds to the desired line in the original plane that intersects the most segments.
 
 \newpage
 
@@ -191,7 +194,6 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
     Initialize an empty list Constraints = []
 
     # NOTE: e is a small positive number
-    # TIME COMPLEXITY: O(n)
     For each red point (x_i, y_i) in RedPoints do:
         Make inequality:
             a (x_i^2) + b (x_i) + c - y_i < 0
@@ -199,7 +201,6 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
             a (x_i^2) + b (x_i) + c - y_i <= -e
         Add this to Constraints
 
-    # TIME COMPLEXITY: O(n)
     For each blue point (x_j, y_j) in RedPoints do:
         Make inequality:
             a x_j^2 + b x_j + c - y_j > 0
@@ -209,7 +210,6 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
 
     ObjectiveFunction: Minimize 0
 
-    # TIME COMPLEXITY: O(n)
     Solution = LinearProgramming(Constraints, ObjectiveFunction)
 
     If Solution is feasible then:
@@ -224,51 +224,22 @@ Algorithm FindSeparatingParabola(RedPoints, BluePoints):
 \newpage
 
 \section*{Question 13}
-For this question, we use an approximation to replace $L_2$ norm in order to use LP.
-
-\[
-    \begin{cases}
-        r \geq 0 \\
-        w \geq 0 \\
-        \forall i \in \{1, \ldots, n\}, \forall j \in \{1, \ldots, k\}: \\
-        \quad (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \geq r \cos\left(\frac{\pi}{k}\right) \\
-        \quad (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \leq (r + w) \sec\left(\frac{\pi}{k}\right) \\
-    \end{cases}
-\]
-
-\subsection*{Variables}
-\begin{itemize}
-    \item \( c_x, c_y \): Coordinates of the center $c$ of the annulus
-    \item \( r \geq 0 \): Inner Radius 
-    \item \( w \geq 0 \): Width of the annulus \( (w = R - r) \)
-\end{itemize}
-
-\subsection*{Objective Function: }
-\[ \min w  \]
-
-\subsection*{Constraint: }
-\begin{enumerate}
-    \item \(r \geq 0, \ w \geq 0 \)
-    \item To approximate $L_1$ norm, we pick $k$ directions. For a regular $k$-gon inscribed in the unit circle, define angles:
-    \[
-        \theta_j = \frac{2\pi j}{k}, \quad j = 1, 2, \ldots, k
-    \]
-    \item Compute unit vectors in these directions:
-    \[
-        u_j = (\cos \theta_j, \sin \theta_j)
-    \]
-    \item For each point \( p_i = (p_{i,x}, p_{i,y}) \) and each direction \( u_j \):
-    \begin{itemize}
-        \item Inner Boundary Constraint:
-        \[
-            (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \geq r \cos\left(\frac{\pi}{k}\right)
-        \]
-        \item Outer Boundary Constraint:
-        \[
-            (p_{i,x} - c_x) \cos \theta_j + (p_{i,y} - c_y) \sin \theta_j \leq (r + w) \sec\left(\frac{\pi}{k}\right)
-        \]
-    \end{itemize}
-    The factors \( \cos\left(\frac{\pi}{k}\right) \) and \( \sec\left(\frac{\pi}{k}\right) \) adjust for the approximation error due to replacing the circle with a regular \( k \)-gon.
-\end{enumerate}
+\begin{align*}
+    \text{min } & R - r \\
+    \text{subject to: } & x^2 - 2xc + c^2 <= R \\
+                        & x^2 - 2xc + c^2 >= r \\
+\end{align*}
+\\
+We notice that the term $-2xc$ appears in both constraints. \\
+Since the objective is to minimize $R - r$, this term can effectively be disregarded in the constraints.
+    
+\begin{align*}
+    \text{min } & R - r \\
+    \text{subject to: } & x^2 + c^2 <= R \\
+                        & x^2 + c^2 >= r \\
+\end{align*}
+\\
+In this linear program, the terms $R$ and $r$ are made greater than previous one due to the addition of $2xc$. \\
+However, since our objective focuses on the difference of $R$ and $r$, this additional term cancels out.
 
 \end{document}
