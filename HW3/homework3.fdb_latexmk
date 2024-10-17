@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1729135495.38423 "c:/Users/yinha/OneDrive/Documents/CSC279/HW3/homework3.tex" "homework3.pdf" "homework3" 1729135496.1577 2
-  "c:/Users/yinha/OneDrive/Documents/CSC279/HW3/homework3.tex" 1729135493 9649 0005f93493e990947f7a1fbea8095967 ""
+["pdflatex"] 1729135615.52681 "c:/Users/yinha/OneDrive/Documents/CSC279/HW3/homework3.tex" "homework3.pdf" "homework3" 1729135616.33798 2
+  "c:/Users/yinha/OneDrive/Documents/CSC279/HW3/homework3.tex" 1729135613 9651 fa4e67184fab7a21d04f3b7a0a825398 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726718816 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1726714687 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1726714687 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -132,8 +132,8 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726727413 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726727685 3326051 17a08e5d0b4cf40e68af463dc2c96f40 ""
   "c:/texlive/2024/texmf.cnf" 1726727388 713 e69b156964470283e0530f5060668171 ""
-  "homework3.aux" 1729135496 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
-  "homework3.tex" 1729135493 9649 0005f93493e990947f7a1fbea8095967 ""
+  "homework3.aux" 1729135616 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
+  "homework3.tex" 1729135613 9651 fa4e67184fab7a21d04f3b7a0a825398 ""
   (generated)
   "homework3.aux"
   "homework3.log"
