@@ -414,7 +414,7 @@ Overfull \hbox (4.50082pt too wide) in paragraph at lines 30--32
 <TrapDecomp.png, id=4, 741.77126pt x 499.8675pt>
 File: TrapDecomp.png Graphic file (type png)
 <use TrapDecomp.png>
-Package pdftex.def Info: TrapDecomp.png  used on input line 38.
+Package pdftex.def Info: TrapDecomp.png  used on input line 39.
 (pdftex.def)             Requested size: 241.49895pt x 162.73721pt.
 
 
@@ -423,46 +423,46 @@ Package pdftex.def Info: TrapDecomp.png  used on input line 38.
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./TrapDecomp.png>]
 
 [2]
-Overfull \hbox (4.61186pt too wide) in paragraph at lines 63--66
+Overfull \hbox (4.61186pt too wide) in paragraph at lines 64--67
 \OT1/cmr/m/n/10 tech-niques to sim-plify the tri-an-gu-la-tion of poly-gons, lever-ag-ing the polygon-
  []
 
 
 
 [3]
-Overfull \hbox (6.11392pt too wide) in paragraph at lines 84--84
+Overfull \hbox (6.11392pt too wide) in paragraph at lines 85--85
 []\OT1/cmr/bx/n/12 Possible Thoughts For Ap-proach-ing (Topo-log-i-cal Ap-proach): 
  []
 
 
 
 [4]
-Underfull \hbox (badness 2903) in paragraph at lines 94--95
+Underfull \hbox (badness 2903) in paragraph at lines 95--96
 []\OT1/cmr/m/n/10 Chazelle, Bernard. 1991. \Tri-an-gu-lat-ing a Sim-ple Poly-gon in Lin-
  []
 
 
-Underfull \hbox (badness 5711) in paragraph at lines 94--95
+Underfull \hbox (badness 5711) in paragraph at lines 95--96
 \OT1/cmr/m/n/10 ear Time." \OT1/cmr/m/it/10 Dis-crete & Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 6(3): 485-524.
  []
 
 
-Underfull \hbox (badness 8094) in paragraph at lines 100--101
+Underfull \hbox (badness 8094) in paragraph at lines 101--102
 []\OT1/cmr/m/n/10 Seidel, Raimund. 1991. \A Sim-ple and Fast In-cre-men-tal Ran-
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 100--101
+Underfull \hbox (badness 3240) in paragraph at lines 101--102
 \OT1/cmr/m/n/10 dom-ized Al-go-rithm for Com-put-ing Trape-zoidal De-com-po-si-tions and
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 100--101
+Underfull \hbox (badness 2042) in paragraph at lines 101--102
 \OT1/cmr/m/n/10 for Tri-an-gu-lat-ing Poly-gons." \OT1/cmr/m/it/10 Com-pu-ta-tional Ge-om-e-try\OT1/cmr/m/n/10 , 1(1): 51{64.
  []
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:103: Misplaced alignment tab character &.
-l.103 .... R., Johnson, D. S., Preparata, F. P., &
+c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:104: Misplaced alignment tab character &.
+l.104 .... R., Johnson, D. S., Preparata, F. P., &
                                                    Tarjan, R. E. (1978). “...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -471,8 +471,8 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:106: Misplaced alignment tab character &.
-l.106     Lee, D. T., &
+c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:107: Misplaced alignment tab character &.
+l.107     Lee, D. T., &
                         Schachter, B. J. (1980). “Two algorithms for const...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -482,27 +482,27 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 []\OT1/cmr/m/n/10 Meisters, G. H. (1975). \Poly-gon tri-an-gu-la-tion|using ear clip-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 \OT1/cmr/m/n/10 ping." \OT1/cmr/m/it/10 SIAM Jour-nal on Ap-plied Math-e-mat-ics\OT1/cmr/m/n/10 , 14(2), 329-334.
  []
 
 
-Underfull \hbox (badness 3849) in paragraph at lines 112--113
+Underfull \hbox (badness 3849) in paragraph at lines 113--114
 []\OT1/cmr/m/n/10 Dwyer, R. A. (1987). \A faster divide-and-conquer al-go-rithm for
  []
 
 
-Underfull \hbox (badness 5260) in paragraph at lines 112--113
+Underfull \hbox (badness 5260) in paragraph at lines 113--114
 \OT1/cmr/m/n/10 con-struct-ing De-lau-nay tri-an-gu-la-tions." \OT1/cmr/m/it/10 Al-go-rith-mica\OT1/cmr/m/n/10 , 2(2), 137-151.
  []
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:115: Misplaced alignment tab character &.
-l.115 ...erg, M., van Kreveld, M., Overmars, M., &
+c:/Users/yinha/OneDrive/Documents/CSC279/HW4/homework4.tex:116: Misplaced alignment tab character &.
+l.116 ...erg, M., van Kreveld, M., Overmars, M., &
                                                    Schwarzkopf, O. (2000). \...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -512,7 +512,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 115--116
+Underfull \hbox (badness 2005) in paragraph at lines 116--117
 []\OT1/cmr/m/n/10 de Berg, M., van Krev-eld, M., Over-mars, M.,  Schwarzkopf, O.
  []
 
@@ -535,9 +535,9 @@ Here is how much of TeX's memory you used:
  36012 multiletter control sequences out of 15000+600000
  566278 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,7n,93p,977b,241s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,7n,93p,977b,239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on homework4.pdf (5 pages, 148601 bytes).
+Output written on homework4.pdf (5 pages, 148591 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
