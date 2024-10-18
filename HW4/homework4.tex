@@ -43,7 +43,7 @@ A key concept in Seidel's algorithm is the use of trapezoidal decomposition, whe
 \subsubsection*{Methods to Split a Polygon into Monotone Pieces in Linear Time: }
 \textit{NOTE: we've mentioned this in the CLASS as well!}
 \\
-To triangulate a polygon, one approach is to first decompose it into monotone pieces, which can then be efficiently triangulated. A plane sweep (or sweep line) algorithm achieves this by moving a line across the polygon and dynamically managing a list of active edges. As the line sweeps through, vertices are processed, and cuts divide the polygon into monotone sections.
+To triangulate a polygon, one approach is to first decompose it into monotone pieces, which can then be efficiently triangulated. A plane sweep (or sweep line) algorithm achieves this by moving a line across the polygon and dynamically managing a list of active edges. As the \textbf{line sweeps} through, vertices are processed, and cuts divide the polygon into monotone sections.
 \\
 Garey, Johnson, Preparata, and Tarjan (1978) pioneered this method, showing that splitting a polygon into y-monotone pieces simplifies triangulation, allowing a linear-time algorithm. 
 \\
