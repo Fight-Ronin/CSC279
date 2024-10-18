@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  18 OCT 2024 01:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  18 OCT 2024 17:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -423,11 +423,6 @@ Package pdftex.def Info: TrapDecomp.png  used on input line 39.
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./TrapDecomp.png>]
 
 [2]
-Overfull \hbox (4.61186pt too wide) in paragraph at lines 64--67
-\OT1/cmr/m/n/10 tech-niques to sim-plify the tri-an-gu-la-tion of poly-gons, lever-ag-ing the polygon-
- []
-
-
 
 [3]
 Overfull \hbox (6.11392pt too wide) in paragraph at lines 85--85
@@ -531,13 +526,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  13349 strings out of 473579
  267578 string characters out of 5732263
- 630000 words of memory out of 5000000
+ 631001 words of memory out of 5000000
  36012 multiletter control sequences out of 15000+600000
  566278 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,7n,93p,977b,239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on homework4.pdf (5 pages, 148620 bytes).
+Output written on homework4.pdf (5 pages, 148839 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream

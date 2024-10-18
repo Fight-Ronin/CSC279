@@ -61,7 +61,7 @@ Chazelle's [1] groundbreaking 1991 algorithm was the first to achieve determinis
 \begin{enumerate}
     \item \textbf{Randomized Algorithms: }
     One algorithm computes the trapezoidal decomposition of a simple polygon in expected linear time, enabling linear-time triangulation through known reductions. It simplifies Chazelle's method by performing random sampling [3] on subchains of the polygon rather than its edges. 
-    \item \textbf{Deterministic Linear-Time Algorithm: }
+    \item \textbf{``Deterministic'' Linear-Time Algorithm: }
     Further work by Amato, Goodrich, and Ramos (2000) has explored the use of random sampling techniques to simplify the triangulation of polygons, leveraging the polygon-cutting and planar separator theorems to build a coarse triangulation in a bottom-up phase. Their method builds upon Seidel's randomized approach and shows how geometric random sampling can lead to efficient linear-time algorithms without needing complex structures [2]. 
     These advancements emphasize the practicality of randomized techniques in computational geometry, particularly for tasks such as polygon triangulation.
 \end{enumerate}
@@ -71,7 +71,7 @@ Chazelle's [1] groundbreaking 1991 algorithm was the first to achieve determinis
 \subsubsection*{Seidel's algorithm Exploration: }
 Seidel's algorithm offers a promising direction for further exploration, particularly due to its simplicity compared to Chazelle's deterministic method. The use of \textbf{random sampling} in Seidel’s algorithm simplifies the trapezoidal decomposition process and allows for an expected linear-time solution. Random sampling has proven to be a valuable tool in computational geometry, as demonstrated by Amato et al. (2000) [2], who further developed random-sampling techniques for geometric structures, including polygon triangulation.
 \\
-A possible direction for further exploration would be to investigate how the random sampling mechanism could be extended or refined to handle more complex polygons, or to simplify the overall triangulation process. Additionally, exploring hybrid approaches that combine deterministic and randomized methods might yield algorithms that are both efficient and simple to implement.
+A possible direction for further exploration would be to investigate how the random sampling mechanism could be extended or refined to handle more complex polygons, or to simplify the overall triangulation process. Additionally, exploring hybrid approaches that combine deterministic and randomized methods might yield algorithms that are both efficient yet simple.
 
 \subsubsection*{Connections to Delaunay Triangulation: }
 While Delaunay triangulation focuses on maximizing the minimum angle of triangles, techniques from Delaunay triangulation could provide valuable insights for improving polygon triangulation algorithms. Delaunay triangulation is often used for \textbf{geometric subdivision} and has been shown to be efficient in a variety of contexts. Lee and Schachter (1980) developed algorithms for constructing Delaunay triangulations that could be adapted to polygon triangulation tasks [5].
