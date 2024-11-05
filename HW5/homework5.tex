@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{trees}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{dcolumn}
+\usepackage{verbatim}
+
+\newcolumntype{2}{D{.}{}{2.0}}
+
+\title{CSC279 HW5}
+\author{Hanzhang Yin}
+\date{Nov/5/2023}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Collaborator}
+Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
+
+\section*{Question 15}
+
+\subsection*{PROBLEM 15---Closest point, farthest point.}
+
+\begin{enumerate}
+    \item Assume $q$ is inside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \item Assume $q$ is outside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \item Assume $q$ is inside $P$. We want to find the closest point to $q$ on $P$.
+    \item Assume $q$ is outside $P$. We want to find the closest point to $q$ on $P$.
+    \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ on $P$.
+    \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ on $P$.
+\end{enumerate}
+\\
+\textbf{Answer: }
+\\
+\textbf{Question 1 - 4 Reasoning: }
+The distance from $q$ to the vertices $p_i$ is unimodal function along the ordered sequence. 
+This is true whether $q$ is inside or outside $P$. Along the vertices, we can use ternary (binary) search on sequence of vertices to find MIN or MAX distance.
+
+\begin{enumerate}
+    \item \textbf{Problem 1:} \( q \) inside \( P \); find the closest point to \( q \) in \( \{p_1, \dots, p_n\} \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} The distance function is unimodal along the vertices, allowing ternary search.
+    \end{itemize}
+
+    \item \textbf{Problem 2:} \( q \) outside \( P \); find the closest point to \( q \) in \( \{p_1, \dots, p_n\} \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} Similar to Problem 1, use ternary search due to the unimodal distance function.
+    \end{itemize}
+
+    \item \textbf{Problem 3:} \( q \) inside \( P \); find the farthest point from \( q \) in \( \{p_1, \dots, p_n\} \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} Unimodal distance function allows ternary search for the maximum.
+    \end{itemize}
+
+    \item \textbf{Problem 4:} \( q \) outside \( P \); find the farthest point from \( q \) in \( \{p_1, \dots, p_n\} \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} Same as Problem 3, apply ternary search on the unimodal distance function.
+    \end{itemize}
+\end{enumerate}
+\\
+\textbf{Question 5 - 6 Reasoning: }
+\\
+The distance from $q$ to the boundary of the convex polygon $P$ is a convex function along the perimeter, regardless of whether $q$ is inside or outside $P$.
+(i.e. The distance decreases to a minimum point and then increases, forming a single through)
+
+\begin{enumerate}
+    \item \textbf{Problem 5:} \( q \) inside \( P \); find the closest point to \( q \) on \( P \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} Perform binary search over edges to find the closest point where the minimum distance occurs.
+    \end{itemize}
+
+    \item \textbf{Problem 6:} \( q \) outside \( P \); find the closest point to \( q \) on \( P \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( O(\log n) \) time.
+        \item \textbf{Reasoning:} Same as Problem 5, use binary search to find the closest point on edges.
+    \end{itemize}
+\end{enumerate}
+\\
+\textbf{Question 7 - 8 Reasoning: }
+\\
+The farthest point from $q$ can lie anywhere along the perimeter of the convex polygon $P$, necessitating a check of all edges and vertices.
+The distance function for farthest points is not unimodal, preventing the use of efficient binary or ternary search methods.
+Hence, without preprocessing, we need $\Omega(n)$ time to do them.
+
+\begin{enumerate}
+    \item \textbf{Problem 7:} \( q \) inside \( P \); find the farthest point from \( q \) on \( P \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( \Omega(n) \) time.
+        \item \textbf{Reasoning:} Requires examining all edges using rotating calipers for antipodal points.
+    \end{itemize}
+
+    \item \textbf{Problem 8:} \( q \) outside \( P \); find the farthest point from \( q \) on \( P \).
+    \begin{itemize}
+        \item \textbf{Solution:} \( \Omega(n) \) time.
+        \item \textbf{Reasoning:} Similar to Problem 7, needs \( \Omega(n) \) time to check all edges.
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection*{PROBLEM 16}
+
+\begin{proof}
+
+
+\end{proof}
+
+\subsection*{PROBLEM 17}
+
+\begin{verbatim}
+Input:
+    - P = {p1, p2, ..., pn}: Set of n points in the plane
+    - r: Radius of each circle Ci
+    - l: Radius of the target circle Q, where l > r
+
+Output:
+    - G: Set of "good" points
+
+Algorithm FindGoodPoints(p_1, ..., p_n, r, l):
+
+1. Build the Delaunay triangulation (DT) of the points {p_1, ..., p_n}.
+    - Time complexity: O(n log n)
+    
+2. Initialize an empty list GoodPoints.
+    
+3. For each point p_i in {p_1, ..., p_n}:
+    - Time complexity: O(n)
+    a. Initialize an empty list of intervals I_i.
+    
+    b. For each neighbor p_j of p_i in DT:
+        - Time complexity: O(1).
+        i. Compute d = distance between p_i and p_j.
+    
+        ii. If d <= 2l:
+            - Compute theta_j = angle between vector (p_j - p_i) and the x-axis.
+            - Compute phi_j = arccos(d / (2 * (l + r))).
+                (Ensure the argument of arccos is within [-1, 1].)
+    
+            - If phi_j is real:
+                - Add the interval [theta_j - phi_j, theta_j + phi_j] to I_i.
+    
+    c. Sort the intervals in I_i.
+        - Time complexity: O(1), every Voronoi point have constant neighbor.
+        - Merge overlapping intervals to get the union.
+        
+    
+    d. If the union of intervals in I_i covers [0, 2pi]:
+        - p_i is not good.
+    e. Else:
+        - p_i is good.
+        - Add p_i to GoodPoints.
+    
+4. Return GoodPoints.
+\end{verbatim}
+
+\subsection*{PROBLEM 18}
+
+
+
+\end{document}
