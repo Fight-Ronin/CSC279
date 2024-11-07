@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1730873797.87319 "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" "homework5.pdf" "homework5" 1730873798.75023 2
-  "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" 1730873795 19399 18c97a71d16bb52702f464c90d1f6da3 ""
+["pdflatex"] 1730950684.37576 "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" "homework5.pdf" "homework5" 1730950685.25621 2
+  "Figure_1.png" 1730950285 46613 278aeb6b0125b28738b392f282a8959b ""
+  "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" 1730950683 20686 94cb9d8aaf3a7cb8b01bde5a4b4dd8d5 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1726716617 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726718816 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1726717947 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -106,6 +107,7 @@
   "c:/texlive/2024/texmf-dist/tex/latex/base/article.cls" 1726720818 20144 67a5f8e0f9e445e8ec6834e595cebdc9 ""
   "c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty" 1726720818 5048 7ebf0f2edf1ef6783e8fe2201a95d0e8 ""
   "c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo" 1726720818 8448 358bf3de18513f057a13bdc6e6770c41 ""
+  "c:/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty" 1726715871 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1726718194 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1726719361 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1726719361 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -136,8 +138,8 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726727413 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726727685 3326051 17a08e5d0b4cf40e68af463dc2c96f40 ""
   "c:/texlive/2024/texmf.cnf" 1726727388 713 e69b156964470283e0530f5060668171 ""
-  "homework5.aux" 1730873798 33 cd8a9e253be16178be412705367a589a "pdflatex"
-  "homework5.tex" 1730873795 19399 18c97a71d16bb52702f464c90d1f6da3 ""
+  "homework5.aux" 1730950685 217 e11867e489938fa540ce5aa6e5eb0dea "pdflatex"
+  "homework5.tex" 1730950683 20686 94cb9d8aaf3a7cb8b01bde5a4b4dd8d5 ""
   (generated)
   "homework5.aux"
   "homework5.log"

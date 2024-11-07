@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage{dcolumn}
 \usepackage{verbatim}
+\usepackage{booktabs}
 
 \newcolumntype{2}{D{.}{}{2.0}}
 
@@ -172,6 +173,36 @@ Algorithm FindGoodPoints(p_1, ..., p_n, r, l):
 \end{verbatim}
 
 \subsection*{PROBLEM 18}
+
+\textbf{Result: }
+\\
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{@{}cccc@{}}
+    \toprule
+    \textbf{Processing \( n \)} & \textbf{Max Depth} & \textbf{Avg Depth} \\ \midrule
+    10 & 8  & 5.45273631840796 \\
+    20 & 12 & 7.750312109862672 \\
+    30 & 18 & 8.939478067740144 \\
+    40 & 17 & 9.610121836925961 \\
+    50 & 21 & 9.93361327734453 \\ \bottomrule
+    \end{tabular}
+    \caption{Depth statistics for different values of \( n \)}
+\end{table}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figure_1.png}
+    \label{fig:model}
+\end{figure*}
+\\
+\textbf{Short Analysis: }
+\\
+The result I got is reasonable, with the average depths increasing in $log n$ as expected, indicating that the algorithm effectively maintains a balanced DAG structure. 
+Although the maximum depths are somewhat higher than theoretical predictions, they remain within an acceptable range considering the algorithm's randomness and the potential for local depth increases during edge legalization. 
+\\
+\textbf{Implementation: }
+\\
 The following code of randomized Delaunay triangulation algorithm with history DAG was implemented in Python:
 \begin{verbatim}
 # ----------------------------
@@ -308,10 +339,14 @@ class DelaunayTriangulation:
         # Remove the containing triangle
         self.triangles.remove(containing_triangle)
 
-        # Create new triangles by connecting the point to the vertices of the containing triangle
-        t1 = Triangle(point, containing_triangle.vertices[0], containing_triangle.vertices[1])
-        t2 = Triangle(point, containing_triangle.vertices[1], containing_triangle.vertices[2])
-        t3 = Triangle(point, containing_triangle.vertices[2], containing_triangle.vertices[0])
+        # Create new triangles by connecting the point 
+        # to the vertices of the containing triangle
+        t1 = Triangle(point, containing_triangle.vertices[0], 
+            containing_triangle.vertices[1])
+        t2 = Triangle(point, containing_triangle.vertices[1], 
+            containing_triangle.vertices[2])
+        t3 = Triangle(point, containing_triangle.vertices[2], 
+            containing_triangle.vertices[0])
 
         # Set neighbors
         self.set_neighbors(t1, containing_triangle)
@@ -364,11 +399,13 @@ class DelaunayTriangulation:
             return
 
         # Find the opposite point in the neighbor triangle
-        opposite_point = [v for v in neighbor.vertices if v not in [edge.p1, edge.p2]][0]
+        opposite_point = [v for v in neighbor.vertices 
+                            if v not in [edge.p1, edge.p2]][0]
 
         if self.in_circumcircle(opposite_point, triangle):
             # Perform edge flip
-            new_triangles = self.edge_flip(triangle, neighbor, edge, point, opposite_point)
+            new_triangles = self.edge_flip(triangle, neighbor, edge, 
+                                            point, opposite_point)
             for new_t in new_triangles:
                 for e in new_t.edges:
                     if point in [e.p1, e.p2]:
@@ -483,7 +520,8 @@ class DelaunayTriangulation:
         """
         # Super-triangle vertices
         super_vertices = set(self.history_root.triangle.vertices)
-        self.triangles = [t for t in self.triangles if not any(v in super_vertices for v in t.vertices)]
+        self.triangles = [t for t in self.triangles 
+                            if not any(v in super_vertices for v in t.vertices)]
 
     def calculate_dag_depths(self):
         """
@@ -513,7 +551,8 @@ class DelaunayTriangulation:
             x_coords = [vertex.x for vertex in triangle.vertices + [triangle.vertices[0]]]
             y_coords = [vertex.y for vertex in triangle.vertices + [triangle.vertices[0]]]
             plt.plot(x_coords, y_coords, 'k-')
-        plt.scatter([p.x for p in self.points], [p.y for p in self.points], color='red', s=10)
+        plt.scatter([p.x for p in self.points], 
+                    [p.y for p in self.points], color='red', s=10)
         plt.axis('equal')
         plt.title('Delaunay Triangulation')
         plt.show()
