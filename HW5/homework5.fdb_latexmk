@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730950684.37576 "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" "homework5.pdf" "homework5" 1730950685.25621 2
+["pdflatex"] 1730950685.81699 "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" "homework5.pdf" "homework5" 1730950686.63849 2
   "Figure_1.png" 1730950285 46613 278aeb6b0125b28738b392f282a8959b ""
   "c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex" 1730950683 20686 94cb9d8aaf3a7cb8b01bde5a4b4dd8d5 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1726716617 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -138,7 +138,7 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726727413 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726727685 3326051 17a08e5d0b4cf40e68af463dc2c96f40 ""
   "c:/texlive/2024/texmf.cnf" 1726727388 713 e69b156964470283e0530f5060668171 ""
-  "homework5.aux" 1730950685 217 e11867e489938fa540ce5aa6e5eb0dea "pdflatex"
+  "homework5.aux" 1730950686 217 e11867e489938fa540ce5aa6e5eb0dea "pdflatex"
   "homework5.tex" 1730950683 20686 94cb9d8aaf3a7cb8b01bde5a4b4dd8d5 ""
   (generated)
   "homework5.aux"
