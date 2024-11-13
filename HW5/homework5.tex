@@ -17,7 +17,7 @@
 
 \title{CSC279 HW5}
 \author{Hanzhang Yin}
-\date{Nov/5/2023}
+\date{Nov/13/2023}
 
 \begin{document}
 
@@ -25,8 +25,6 @@
 
 \subsection*{Collaborator}
 Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
-
-\section*{Question 15}
 
 \subsection*{PROBLEM 15---Closest point, farthest point.}
 
@@ -44,34 +42,7 @@ Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
 \textbf{Answer: }
 \\
 \textbf{Question 1 - 4 Reasoning: }
-The distance from $q$ to the vertices $p_i$ is unimodal function along the ordered sequence. 
-This is true whether $q$ is inside or outside $P$. Along the vertices, we can use ternary (binary) search on sequence of vertices to find MIN or MAX distance.
-
-\begin{enumerate}
-    \item \textbf{Problem 1:} \( q \) inside \( P \); find the closest point to \( q \) in \( \{p_1, \dots, p_n\} \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} The distance function is unimodal along the vertices, allowing ternary search.
-    \end{itemize}
-
-    \item \textbf{Problem 2:} \( q \) outside \( P \); find the closest point to \( q \) in \( \{p_1, \dots, p_n\} \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} Similar to Problem 1, use ternary search due to the unimodal distance function.
-    \end{itemize}
-
-    \item \textbf{Problem 3:} \( q \) inside \( P \); find the farthest point from \( q \) in \( \{p_1, \dots, p_n\} \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} Unimodal distance function allows ternary search for the maximum.
-    \end{itemize}
-
-    \item \textbf{Problem 4:} \( q \) outside \( P \); find the farthest point from \( q \) in \( \{p_1, \dots, p_n\} \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} Same as Problem 3, apply ternary search on the unimodal distance function.
-    \end{itemize}
-\end{enumerate}
+For Problems 1--4, the distances from \( q \) to the vertices \( p_i \) do not exhibit a unimodal or monotonic pattern along the ordered sequence of vertices because convex polygons can be irregular, causing the distances to fluctuate unpredictably. This lack of a consistent pattern means we cannot apply efficient search algorithms like binary or ternary search, which rely on such properties. Consequently, to find the closest or farthest vertex, we must individually compute and compare the distances for all \( n \) vertices, leading to a time complexity of \( \Omega(n) \) for each problem.
 \\
 \textbf{Question 5 - 6 Reasoning: }
 \\
@@ -123,53 +94,47 @@ Hence, without preprocessing, we need $\Omega(n)$ time to do them.
 \subsection*{PROBLEM 17}
 
 \begin{verbatim}
-import random
-import matplotlib.pyplot as plt
-from collections import deque
+Input: 
+points: list of n points p1, p2, ..., pn in the plane
+r: radius of each circle Ci centered at pi
+l: radius of the circle to be found
 
-Input:
-    - P = {p1, p2, ..., pn}: Set of n points in the plane
-    - r: Radius of each circle Ci
-    - l: Radius of the target circle Q, where l > r
+Output: 
+    GoodIndices: list of indices i where pi is good
 
-Output:
-    - G: Set of "good" points
+Algorithm FindGoodPoints(points, r, l):
+    1. Compute the Voronoi diagram VD of the points p1, ..., pn.
+    # This can be done in O(n log n) time.
 
-Algorithm FindGoodPoints(p_1, ..., p_n, r, l):
+    2. Initialize GoodIndices as an empty list.
 
-1. Build the Delaunay triangulation (DT) of the points {p_1, ..., p_n}.
-    - Time complexity: O(n log n)
     
-2. Initialize an empty list GoodPoints.
-    
-3. For each point p_i in {p_1, ..., p_n}:
-    - Time complexity: O(n)
-    a. Initialize an empty list of intervals I_i.
-    
-    b. For each neighbor p_j of p_i in DT:
-        - Time complexity: O(1).
-        i. Compute d = distance between p_i and p_j.
-    
-        ii. If d <= 2l:
-            - Compute theta_j = angle between vector (p_j - p_i) and the x-axis.
-            - Compute phi_j = arccos(d / (2 * (l + r))).
-                (Ensure the argument of arccos is within [-1, 1].)
-    
-            - If phi_j is real:
-                - Add the interval [theta_j - phi_j, theta_j + phi_j] to I_i.
-    
-    c. Sort the intervals in I_i.
-        - Time complexity: O(1), every Voronoi point have constant neighbor.
-        - Merge overlapping intervals to get the union.
-        
-    
-    d. If the union of intervals in I_i covers [0, 2pi]:
-        - p_i is not good.
-    e. Else:
-        - p_i is good.
-        - Add p_i to GoodPoints.
-    
-4. Return GoodPoints.
+    3. For each point pi in points:
+    # This can be done in O(n) time.
+        a. Let V_i be the Voronoi cell of pi in Voronoi Diagram.
+        b. Let C_i be the circle centered at pi with radius l + r.
+        c. Initialize IsGood[i] = False.
+
+        d. For each edge e of V_i:
+            i.   If e is a finite line segment between vertices v1 and v2:
+                 - Compute the intersection points between e and C_i.
+                 - If there is an intersection:
+                     - Set IsGood[i] = True.
+                     - Break out of the edge loop.
+            ii.  If e is an infinite ray (unbounded edge):
+                 - Compute the intersection between e and C_i if it exists.
+                 - Same as above.
+
+        e. If IsGood[i] is False:
+            - For each vertex v in V_i:
+                - If v lies inside C_i:
+                    - Set IsGood[i] = True.
+                    - Break out of the vertex loop.
+
+        f. If IsGood[i] is True:
+            - Append i to GoodIndices.
+
+    4. Return GoodIndices.
 \end{verbatim}
 
 \subsection*{PROBLEM 18}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  6 NOV 2024 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  13 NOV 2024 00:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -414,23 +414,23 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (4.91pt too wide) in paragraph at lines 35--36
+Overfull \hbox (4.91pt too wide) in paragraph at lines 33--34
 []\OT1/cmr/m/n/10 Assume $\OML/cmm/m/it/10 q$ \OT1/cmr/m/n/10 is out-side $\OML/cmm/m/it/10 P$\OT1/cmr/m/n/10 . We want to find the clos-est point to $\OML/cmm/m/it/10 q$ \OT1/cmr/m/n/10 in $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[]; [] ; p[]\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
  []
 
 
-Overfull \hbox (4.04892pt too wide) in paragraph at lines 36--37
+Overfull \hbox (4.04892pt too wide) in paragraph at lines 34--35
 []\OT1/cmr/m/n/10 Assume $\OML/cmm/m/it/10 q$ \OT1/cmr/m/n/10 is in-side $\OML/cmm/m/it/10 P$\OT1/cmr/m/n/10 . We want to find the far-thest point to $\OML/cmm/m/it/10 q$ \OT1/cmr/m/n/10 in $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[]; [] ; p[]\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
  []
 
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:44: LaTeX Error: There's no line here to end.
+c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:42: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.44 \textbf
+l.42 \textbf
             {Answer: }
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -440,28 +440,15 @@ or  <return>  to continue without it.
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:76: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.76 \textbf
-            {Question 5 - 6 Reasoning: }
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:95: LaTeX Error: There's no line here to end.
+c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:66: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 \textbf
+l.66 \textbf
             {Question 7 - 8 Reasoning: }
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -469,48 +456,45 @@ or  <return>  to continue without it.
 
 
 
-[2]
-Overfull \hbox (27.74675pt too wide) in paragraph at lines 140--140
-[]\OT1/cmtt/m/n/10 1. Build the Delaunay triangulation (DT) of the points {p_1, ..., p_n}.[] 
+[2{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 115--115
+[]        \OT1/cmtt/m/n/10 b. Let C_i be the circle centered at pi with radius l + r.[] 
  []
 
 
-Overfull \hbox (74.99634pt too wide) in paragraph at lines 154--154
-[]            \OT1/cmtt/m/n/10 - Compute theta_j = angle between vector (p_j - p_i) and the x-axis.[] 
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 119--119
+[]            \OT1/cmtt/m/n/10 i.   If e is a finite line segment between vertices v1 and v2:[] 
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 156--156
-[]                \OT1/cmtt/m/n/10 (Ensure the argument of arccos is within [-1, 1].)[] 
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 120--120
+[]                 \OT1/cmtt/m/n/10 - Compute the intersection points between e and C_i.[] 
  []
 
 
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 159--159
-[]                \OT1/cmtt/m/n/10 - Add the interval [theta_j - phi_j, theta_j + phi_j] to I_i.[] 
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 125--125
+[]                 \OT1/cmtt/m/n/10 - Compute the intersection between e and C_i if it exists.[] 
  []
 
 
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 162--162
-[]        \OT1/cmtt/m/n/10 - Time complexity: O(1), every Voronoi point have constant neighbor.[] 
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-
-[3]
-<Figure_1.png, id=27, 867.24pt x 433.62pt>
+<Figure_1.png, id=24, 867.24pt x 433.62pt>
 File: Figure_1.png Graphic file (type png)
 <use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 195.
+Package pdftex.def Info: Figure_1.png  used on input line 160.
 (pdftex.def)             Requested size: 310.4979pt x 155.24954pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:199: LaTeX Error: There's no line here to end.
+
+c:/Users/yinha/OneDrive/Documents/CSC279/HW5/homework5.tex:164: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.199 \textbf
+l.164 \textbf
              {Short Analysis: }
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -518,167 +502,169 @@ or  <return>  to continue without it.
 
 
 
-[4 <./Figure_1.png>]
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 219--219
+[3]
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 184--184
 []    \OT1/cmtt/m/n/10 Helper class to uniquely identify a segment irrespective of point order.[] 
  []
 
 
-Overfull \hbox (27.74675pt too wide) in paragraph at lines 229--229
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 194--194
 []        \OT1/cmtt/m/n/10 return (self.p1.x, self.p1.y) == (other.p1.x, other.p1.y) and \[] 
  []
 
 
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 233--233
+
+[4 <./Figure_1.png>]
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 198--198
 []        \OT1/cmtt/m/n/10 return hash(((self.p1.x, self.p1.y), (self.p2.x, self.p2.y)))[] 
  []
 
 
-Overfull \hbox (85.49625pt too wide) in paragraph at lines 236--236
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 201--201
 []        \OT1/cmtt/m/n/10 return f"Segment(({self.p1.x}, {self.p1.y}) - ({self.p2.x}, {self.p2.y}))"[] 
  []
 
 
-
-[5]
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 253--253
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 218--218
 []        \OT1/cmtt/m/n/10 verts = ', '.join([f"({p.x}, {p.y})" for p in self.vertices])[] 
  []
 
 
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 271--271
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 236--236
 []        \OT1/cmtt/m/n/10 self.segments = {}    # SegmentWrapper -> list of adjacent Triangles[] 
  []
 
 
 
-[6]
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 299--299
+[5]
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 264--264
 []            \OT1/cmtt/m/n/10 self.segments.setdefault(edge, []).append(super_triangle)[] 
  []
 
 
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 303--303
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 268--268
 []        \OT1/cmtt/m/n/10 Traverse the history DAG to locate the triangle containing the point.[] 
  []
 
 
-Overfull \hbox (95.99615pt too wide) in paragraph at lines 321--321
+Overfull \hbox (95.99615pt too wide) in paragraph at lines 286--286
 []        \OT1/cmtt/m/n/10 Check if point p is inside the given triangle using barycentric coordinates.[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 327--327
+
+[6]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 292--292
 []        \OT1/cmtt/m/n/10 b1 = sign(p, triangle.vertices[0], triangle.vertices[1]) < 0.0[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 328--328
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 293--293
 []        \OT1/cmtt/m/n/10 b2 = sign(p, triangle.vertices[1], triangle.vertices[2]) < 0.0[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 329--329
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 294--294
 []        \OT1/cmtt/m/n/10 b3 = sign(p, triangle.vertices[2], triangle.vertices[0]) < 0.0[] 
  []
 
 
-Overfull \hbox (101.24611pt too wide) in paragraph at lines 337--337
+Overfull \hbox (101.24611pt too wide) in paragraph at lines 302--302
 []        \OT1/cmtt/m/n/10 containing_triangle, containing_node = self.locate_containing_triangle(point)[] 
  []
 
 
 
 [7]
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 386--386
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 351--351
 []                    \OT1/cmtt/m/n/10 if neighbor != old_triangle and neighbor != new_triangle:[] 
  []
 
 
-
-[8]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 407--407
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 372--372
 []            \OT1/cmtt/m/n/10 new_triangles = self.edge_flip(triangle, neighbor, edge,[] 
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 408--408
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 373--373
 []                                            \OT1/cmtt/m/n/10 point, opposite_point)[] 
  []
 
 
 
-[9]
-Overfull \hbox (74.99634pt too wide) in paragraph at lines 441--441
+[8]
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 406--406
 []        \OT1/cmtt/m/n/10 self.update_neighbors_after_flip(t1, t2, new_t1, new_t2, edge, new_edge)[] 
  []
 
 
-Overfull \hbox (106.49606pt too wide) in paragraph at lines 459--459
+Overfull \hbox (106.49606pt too wide) in paragraph at lines 424--424
 []    \OT1/cmtt/m/n/10 def update_neighbors_after_flip(self, t1, t2, new_t1, new_t2, old_edge, new_edge):[] 
  []
 
 
 
-[10]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 484--484
+[9]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 449--449
 []        \OT1/cmtt/m/n/10 Find the history DAG node corresponding to the given triangle.[] 
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 496--496
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 461--461
 []        \OT1/cmtt/m/n/10 Check if a point is inside the circumcircle of a triangle.[] 
  []
 
 
-Overfull \hbox (90.7462pt too wide) in paragraph at lines 498--498
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 463--463
 []        \OT1/cmtt/m/n/10 ax, ay = triangle.vertices[0].x - point.x, triangle.vertices[0].y - point.y[] 
  []
 
 
-Overfull \hbox (90.7462pt too wide) in paragraph at lines 499--499
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 464--464
 []        \OT1/cmtt/m/n/10 bx, by = triangle.vertices[1].x - point.x, triangle.vertices[1].y - point.y[] 
  []
 
 
-Overfull \hbox (90.7462pt too wide) in paragraph at lines 500--500
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 465--465
 []        \OT1/cmtt/m/n/10 cx, cy = triangle.vertices[2].x - point.x, triangle.vertices[2].y - point.y[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 502--502
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 467--467
 []        \OT1/cmtt/m/n/10 det = (ax * (by * (cx**2 + cy**2) - cy * (bx**2 + by**2)) -[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 503--503
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 468--468
 []               \OT1/cmtt/m/n/10 ay * (bx * (cx**2 + cy**2) - cx * (bx**2 + by**2)) +[] 
  []
 
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 519--519
+
+[10]
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 484--484
 []        \OT1/cmtt/m/n/10 Remove any triangles that share a vertex with the super-triangle.[] 
  []
 
 
-Overfull \hbox (74.99634pt too wide) in paragraph at lines 524--524
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 489--489
 []                            \OT1/cmtt/m/n/10 if not any(v in super_vertices for v in t.vertices)][] 
+ []
+
+
+Overfull \hbox (127.49588pt too wide) in paragraph at lines 516--516
+[]            \OT1/cmtt/m/n/10 x_coords = [vertex.x for vertex in triangle.vertices + [triangle.vertices[0]]][] 
  []
 
 
 
 [11]
-Overfull \hbox (127.49588pt too wide) in paragraph at lines 551--551
-[]            \OT1/cmtt/m/n/10 x_coords = [vertex.x for vertex in triangle.vertices + [triangle.vertices[0]]][] 
- []
-
-
-Overfull \hbox (127.49588pt too wide) in paragraph at lines 552--552
+Overfull \hbox (127.49588pt too wide) in paragraph at lines 517--517
 []            \OT1/cmtt/m/n/10 y_coords = [vertex.y for vertex in triangle.vertices + [triangle.vertices[0]]][] 
  []
 
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 555--555
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 520--520
 []                    \OT1/cmtt/m/n/10 [p.y for p in self.points], color='red', s=10)[] 
  []
 
@@ -695,15 +681,15 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 13423 strings out of 473579
- 268842 string characters out of 5732263
- 636821 words of memory out of 5000000
- 36079 multiletter control sequences out of 15000+600000
- 566781 words of font info for 70 fonts, out of 8000000 for 9000
+ 13421 strings out of 473579
+ 268809 string characters out of 5732263
+ 638820 words of memory out of 5000000
+ 36077 multiletter control sequences out of 15000+600000
+ 566176 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,93p,453b,283s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,93p,657b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on homework5.pdf (12 pages, 199528 bytes).
+Output written on homework5.pdf (12 pages, 197664 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream
