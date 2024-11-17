@@ -2,9 +2,7 @@ import random
 import matplotlib.pyplot as plt
 from collections import deque
 
-# ----------------------------
 # Data Structures Definitions
-# ----------------------------
 
 class Point:
     def __init__(self, x, y):
@@ -58,9 +56,7 @@ class HistoryDAGNode:
     def add_child(self, child_node):
         self.children.append(child_node)
 
-# ----------------------------
 # Delaunay Triangulation Class
-# ----------------------------
 
 class DelaunayTriangulation:
     def __init__(self, points):
@@ -346,18 +342,14 @@ class DelaunayTriangulation:
         plt.title('Delaunay Triangulation')
         plt.show()
 
-# ----------------------------
 # Utility Functions
-# ----------------------------
 
 def generate_grid_points(n):
     points = [Point(i, j) for i in range(n) for j in range(n)]
     random.shuffle(points)
     return points
 
-# ----------------------------
 # Main Execution and Plotting
-# ----------------------------
 
 def main():
     n_values = [10, 20, 30, 40, 50]  # Adjust as needed

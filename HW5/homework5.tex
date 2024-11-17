@@ -83,15 +83,68 @@ Hence, without preprocessing, we need $\Omega(n)$ time to do them.
     \end{itemize}
 \end{enumerate}
 
+\newpage
 
 \subsection*{PROBLEM 16}
 
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{HW5_Q2.png}
+    \label{fig:q2PROOF}
+\end{figure*}
+
 \begin{proof}
-    For a n-polygon, 
+    Let $\{P_1, \dots, P_n\}$ be the collection of points of a convex polygon $P$.
+    \\
+    \textbf{Steps for Triangulation: }
+
+    \begin{enumerate}
+        \item Order points in clock-wise order $\{p_1, ..., p_n\}$.
+        
+        \item Pick the \textbf{longest diagonal} of $P$: $P_i, P_j$.
+    
+        \item Pick the third point $P_k$ such that $P_k$ is the neighbor of point $p_i$ OR $p_j$. WLOG, 
+        pick the neighbor of $p_i$ as the third point. We denote the third point as $P_{i+1}$ or $P_{j-1}$.
+        \textbf{Note:} This $P_k$ is on the opposite arc from $P_i P_j$.
+        \item Form the first triangle as $\triangle P_i P_j P_k$:
+        \begin{enumerate}
+            \item Then we iteratively add the rest of the polygon of the ``half'' of the polygon as:
+            \\
+            \textbf{Note:} The neighbor of $P_{i + n}$ is $P_{j - 1}$ and $P_{j - 3}$.
+            \[
+                P_j P_{j+1} P_{j+2}, \dots, P_{j} P_{i + n} P_{j-1}
+            \]
+        
+            \item For the rest of the ``half'' of the polygon:
+            \\
+            \textbf{Note:} The neighbor of $P_{j + m}$ is $P_{i - 1}$ and $P_{i - 3}$.
+            \[
+                P_i P_j P_{j+1}, \dots, \dots, P_{i} P_{j + m} P_{i-1}.
+            \]
+        \end{enumerate}
+\end{enumerate}
 
 \end{proof}
 
 \subsection*{PROBLEM 17}
+First construct the Voronoi diagram. For every edge e, we calculate the minimum distance d between e to the Voronoi sites pi and pk that use e as an edge. If $d > (2c + l) / 2$, then we set $i$ and $k$ as good.
+\\
+\begin{verbatim}
+func (P: set of points,c , l):
+    # Avoid replicate side being added
+    ans = set()
+    # return vornoi diagram of point p
+    # O(nlogn)
+    v = vornoi_diagram(P)
+    # O(n)
+    for edge in v.E:
+        # traverse all the edge, compute the distance between the corresponding point and the edge
+        distance = compute(edge) 
+        if distance < (2c + l)/2:
+            ans.append(edge.p1)
+            ans.append(edge.p2)
+    return ans
+\end{verbatim}
 
 \begin{verbatim}
 Input: 
@@ -160,6 +213,8 @@ Algorithm FindGoodPoints(points, r, l):
     \includegraphics[width=0.9\textwidth]{Figure_1.png}
     \label{fig:model}
 \end{figure*}
+
+\hspace{0.01cm}
 \\
 \textbf{Short Analysis: }
 \\
