@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from collections import deque
 
 # Data Structures Definitions
-
 class Point:
     def __init__(self, x, y):
         self.x = x

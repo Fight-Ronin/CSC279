@@ -27,9 +27,13 @@
 Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
 
 \subsection*{PROBLEM 15---Closest point, farthest point.}
+\\
+\textbf{Answer: }
 
 \begin{enumerate}
     \item Assume $q$ is inside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \\
+    \textbf{Reasoning: }
     \item Assume $q$ is outside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
     \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
     \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
@@ -38,8 +42,7 @@ Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
     \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ on $P$.
     \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ on $P$.
 \end{enumerate}
-\\
-\textbf{Answer: }
+
 \\
 \textbf{Question 1 - 4 Reasoning: }
 For Problems 1--4, the distances from \( q \) to the vertices \( p_i \) do not exhibit a unimodal or monotonic pattern along the ordered sequence of vertices because convex polygons can be irregular, causing the distances to fluctuate unpredictably. This lack of a consistent pattern means we cannot apply efficient search algorithms like binary or ternary search, which rely on such properties. Consequently, to find the closest or farthest vertex, we must individually compute and compare the distances for all \( n \) vertices, leading to a time complexity of \( \Omega(n) \) for each problem.
@@ -225,9 +228,7 @@ Although the maximum depths are somewhat higher than theoretical predictions, th
 \\
 The following code of randomized Delaunay triangulation algorithm with history DAG was implemented in Python:
 \begin{verbatim}
-# ----------------------------
 # Data Structures Definitions
-# ----------------------------
 
 class Point:
     def __init__(self, x, y):
@@ -281,9 +282,7 @@ class HistoryDAGNode:
     def add_child(self, child_node):
         self.children.append(child_node)
 
-# ----------------------------
 # Delaunay Triangulation Class
-# ----------------------------
 
 class DelaunayTriangulation:
     def __init__(self, points):
