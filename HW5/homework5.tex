@@ -100,9 +100,9 @@ Hence, without preprocessing, we need $\Omega(n)$ time to do them.
 
     \begin{enumerate}
         \item Order points in clock-wise order $\{p_1, ..., p_n\}$.
-        
-        \item Pick the \textbf{longest diagonal} of $P$: $P_i, P_j$.
-    
+
+        \item Pick the \textbf{longest side} from \textbf{diagonal} or \textbf{side} of $P$: $P_i, P_j$.
+
         \item Pick the third point $P_k$ such that $P_k$ is the neighbor of point $p_i$ OR $p_j$. WLOG, 
         pick the neighbor of $p_i$ as the third point. We denote the third point as $P_{i+1}$ or $P_{j-1}$.
         \textbf{Note:} This $P_k$ is on the opposite arc from $P_i P_j$.
@@ -114,7 +114,7 @@ Hence, without preprocessing, we need $\Omega(n)$ time to do them.
             \[
                 P_j P_{j+1} P_{j+2}, \dots, P_{j} P_{i + n} P_{j-1}
             \]
-        
+
             \item For the rest of the ``half'' of the polygon:
             \\
             \textbf{Note:} The neighbor of $P_{j + m}$ is $P_{i - 1}$ and $P_{i - 3}$.
