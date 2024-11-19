@@ -140,7 +140,7 @@ func (P: set of points,c , l):
     for edge in v.E:
         # traverse all the edge, compute the distance between the corresponding point and the edge
         distance = compute(edge) 
-        if distance < (2c + l)/2:
+        if distance < (2c + l):
             ans.append(edge.p1)
             ans.append(edge.p2)
     return ans
