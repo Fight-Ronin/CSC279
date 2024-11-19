@@ -351,7 +351,7 @@ def generate_grid_points(n):
 # Main Execution and Plotting
 
 def main():
-    n_values = [10, 20, 30, 40, 50]  # Adjust as needed
+    n_values = [10, 20, 30, 40, 50]
     max_depths = []
     avg_depths = []
 
