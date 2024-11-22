@@ -26,7 +26,7 @@
 \subsection*{Collaborator}
 Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
 
-\subsection*{PROBLEM 15---Closest point, farthest point.}
+\subsection*{PROBLEM 15}
 \\
 \textbf{Answer: }
 
@@ -35,57 +35,46 @@ Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
     \\
     \textbf{Reasoning: }
     \\
-    
+    Hard and required $\Omega(n)$ runtime. Arrange all points on the circumference of a circle like regular convex n-polygon enclosing point $q$ as its center. 
+    If the algorithm is deterministic and assumes an easy case, some points remain unvisited. For those unvisited point, we one of them closer.
+    Therefore, the algorithm can not find the correct closest point and outputting incorrect results.
     \item Assume $q$ is outside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Place all points on a quarter-circle like regular convex n-polygon enclosing point $q$ while ensuring $P$ is convex and non-enclosing.
+    Assume easy, then there will be some point that the algorithm (deterministic) will not visit. For an unvisited point, we move it closer. 
+    Therefore, the algorithm can not find the correct closest point and outputting incorrect results.
     \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Similar to Q1, but this time we move an unvisited point further.
     \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Similar to Q2, but this time we move an unvisited point further.
     \item Assume $q$ is inside $P$. We want to find the closest point to $q$ on $P$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Similar to Q1 again, The number of edges equals the number of points, so we still need at least $O(n)$ runtime.
     \item Assume $q$ is outside $P$. We want to find the closest point to $q$ on $P$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Easy and can be solved within $O(logn)$. 
     \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ on $P$.
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Similar to Q3, so similar argument can be made.
     \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ on $P$.
-\end{enumerate}
-
-\\
-\textbf{Question 1 - 4 Reasoning: }
-For Problems 1--4, the distances from \( q \) to the vertices \( p_i \) do not exhibit a unimodal or monotonic pattern along the ordered sequence of vertices because convex polygons can be irregular, causing the distances to fluctuate unpredictably. This lack of a consistent pattern means we cannot apply efficient search algorithms like binary or ternary search, which rely on such properties. Consequently, to find the closest or farthest vertex, we must individually compute and compare the distances for all \( n \) vertices, leading to a time complexity of \( \Omega(n) \) for each problem.
-\\
-\textbf{Question 5 - 6 Reasoning: }
-\\
-The distance from $q$ to the boundary of the convex polygon $P$ is a convex function along the perimeter, regardless of whether $q$ is inside or outside $P$.
-(i.e. The distance decreases to a minimum point and then increases, forming a single through)
-
-\begin{enumerate}
-    \item \textbf{Problem 5:} \( q \) inside \( P \); find the closest point to \( q \) on \( P \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} Perform binary search over edges to find the closest point where the minimum distance occurs.
-    \end{itemize}
-
-    \item \textbf{Problem 6:} \( q \) outside \( P \); find the closest point to \( q \) on \( P \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( O(\log n) \) time.
-        \item \textbf{Reasoning:} Same as Problem 5, use binary search to find the closest point on edges.
-    \end{itemize}
-\end{enumerate}
-\\
-\textbf{Question 7 - 8 Reasoning: }
-\\
-The farthest point from $q$ can lie anywhere along the perimeter of the convex polygon $P$, necessitating a check of all edges and vertices.
-The distance function for farthest points is not unimodal, preventing the use of efficient binary or ternary search methods.
-Hence, without preprocessing, we need $\Omega(n)$ time to do them.
-
-\begin{enumerate}
-    \item \textbf{Problem 7:} \( q \) inside \( P \); find the farthest point from \( q \) on \( P \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( \Omega(n) \) time.
-        \item \textbf{Reasoning:} Requires examining all edges using rotating calipers for antipodal points.
-    \end{itemize}
-
-    \item \textbf{Problem 8:} \( q \) outside \( P \); find the farthest point from \( q \) on \( P \).
-    \begin{itemize}
-        \item \textbf{Solution:} \( \Omega(n) \) time.
-        \item \textbf{Reasoning:} Similar to Problem 7, needs \( \Omega(n) \) time to check all edges.
-    \end{itemize}
+    \\
+    \textbf{Reasoning: }
+    \\
+    Hard and required $\Omega(n)$ runtime. Similar to Q4. The farthest point must lie on the circumcircle as all other points are on an n-gon, so similar argument can be made.
 \end{enumerate}
 
 \newpage
@@ -132,68 +121,73 @@ Hence, without preprocessing, we need $\Omega(n)$ time to do them.
 \end{proof}
 
 \subsection*{PROBLEM 17}
-First construct the Voronoi diagram. For every edge e, we calculate the minimum distance d between e to the Voronoi sites pi and pk that use e as an edge. If $d > (2c + l) / 2$, then we set $i$ and $k$ as good.
-\\
-\begin{verbatim}
-func (P: set of points,c , l):
-    # Avoid replicate side being added
-    ans = set()
-    # return vornoi diagram of point p
-    # O(nlogn)
-    v = vornoi_diagram(P)
-    # O(n)
-    for edge in v.E:
-        # traverse all the edge, compute the distance between the corresponding point and the edge
-        distance = compute(edge) 
-        if distance < (2c + l):
-            ans.append(edge.p1)
-            ans.append(edge.p2)
-    return ans
-\end{verbatim}
+The algorithm identifies all "good" points by first constructing the Voronoi diagram of the given points, which efficiently captures proximity relationships in \( O(n \log n) \) time. 
+For each point \( p_i \), it examines only its neighboring points in the Voronoi diagram, as these are the only ones that could potentially interfere with placing a new circle. By computing the angular intervals where a circle of radius \( \ell \) touching \( C_i \) would intersect any neighboring \( C_j \), 
+the algorithm determines the directions that are blocked. If there exists at least one direction where such interference does not occur, the point \( p_i \) is therefore "good".
 
 \begin{verbatim}
-Input: 
-points: list of n points p1, p2, ..., pn in the plane
-r: radius of each circle Ci centered at pi
-l: radius of the circle to be found
+# Helper Functions
+def compute_interfering_angles(p_i, p_j, r, l, d_ij):
+    # Calculate the angle between p_i and p_j
+    delta_x = p_j.x - p_i.x
+    delta_y = p_j.y - p_i.y
+    alpha = atan2(delta_y, delta_x)
 
-Output: 
-    GoodIndices: list of indices i where pi is good
+    # Law of Cosines to find the angular width
+    cos_theta = (d_ij**2 + (r + l)**2 - (r + l)**2) / (2 * d_ij * (r + l))
+    if abs(cos_theta) <= 1:
+        theta = acos(cos_theta)
+        # The interfering interval is [alpha - theta, alpha + theta]
+        interval = [(alpha - theta) % (2 * pi), (alpha + theta) % (2 * pi)]
+        # Handle interval wrapping around 2pi
+        if interval[0] > interval[1]:
+            return [(interval[0], 2 * pi), (0, interval[1])]
+        else:
+            return [interval]
+    else:
+        # Circles do not intersect; no interfering angles
+        return []
 
-Algorithm FindGoodPoints(points, r, l):
-    1. Compute the Voronoi diagram VD of the points p1, ..., pn.
-    # This can be done in O(n log n) time.
+# Main Function
+def find_good_points(P, r, l):
+    # Construct the Voronoi diagram
+    # Need O(nlogn)
+    V = voronoi_diagram(P)
 
-    2. Initialize GoodIndices as an empty list.
+    good_points = []
 
-    
-    3. For each point pi in points:
-    # This can be done in O(n) time.
-        a. Let V_i be the Voronoi cell of pi in Voronoi Diagram.
-        b. Let C_i be the circle centered at pi with radius l + r.
-        c. Initialize IsGood[i] = False.
+    # For each point p_i
+    # Need O(n)
+    for p_i in P:
+        interfering_angles = []  # List to store interfering angular intervals
 
-        d. For each edge e of V_i:
-            i.   If e is a finite line segment between vertices v1 and v2:
-                 - Compute the intersection points between e and C_i.
-                 - If there is an intersection:
-                     - Set IsGood[i] = True.
-                     - Break out of the edge loop.
-            ii.  If e is an infinite ray (unbounded edge):
-                 - Compute the intersection between e and C_i if it exists.
-                 - Same as above.
+        # Get neighboring points in the Voronoi diagram
+        neighbors = V.get_neighbors(p_i)
 
-        e. If IsGood[i] is False:
-            - For each vertex v in V_i:
-                - If v lies inside C_i:
-                    - Set IsGood[i] = True.
-                    - Break out of the vertex loop.
+        # For each neighbor p_j
+        for p_j in neighbors:
+            d_ij = distance(p_i, p_j)
 
-        f. If IsGood[i] is True:
-            - Append i to GoodIndices.
+            # Only consider neighbors that may interfere
+            if d_ij < 2 * (r + l):
+                # Compute the angular intervals of interference
+                angles = compute_interfering_angles(p_i, p_j, r, l, d_ij)
+                interfering_angles.extend(angles)
 
-    4. Return GoodIndices.
+        # Compute the union of interfering intervals
+        interfering_union = union_of_intervals(interfering_angles)
+
+        # Determine the complement of the union over [0, 2pi)
+        non_interfering_angles = complement_of_intervals(interfering_union, 0, 2 * pi)
+
+        # If there is at least one non-interfering angle, p_i is good
+        if non_interfering_angles:
+            good_points.append(p_i)
+
+    return good_points
 \end{verbatim}
+
+\newpage
 
 \subsection*{PROBLEM 18}
 
