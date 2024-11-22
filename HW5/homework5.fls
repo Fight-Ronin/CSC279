@@ -206,13 +206,13 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT homework5.pdf
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./HW5_Q2.png
 INPUT ./HW5_Q2.png
 INPUT ./HW5_Q2.png
 INPUT ./HW5_Q2.png
 INPUT ./HW5_Q2.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./Figure_1.png
 INPUT ./Figure_1.png
 INPUT ./Figure_1.png
