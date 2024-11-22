@@ -17,7 +17,7 @@
 
 \title{CSC279 HW5}
 \author{Hanzhang Yin}
-\date{Nov/13/2023}
+\date{Nov/22/2023}
 
 \begin{document}
 
@@ -118,46 +118,67 @@ Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
 
 \subsection*{PROBLEM 16}
 
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{HW5_Q2.png}
-    \label{fig:q2PROOF}
-\end{figure*}
-
 \begin{proof}
-    Let $\{P_1, \dots, P_n\}$ be the collection of points of a convex polygon $P$.
+    \textbf{Theorem: }
     \\
-    \textbf{Steps for Triangulation: }
-
+    A convex polygon is fully contained within the largest circumcircle formed by three of its consecutive vertices.
+    \\
+    \textbf{Lemma: }
+    \\
+    Let \( P = \{p_1, p_2, \ldots, p_n\} \) represent a convex polygon. Suppose a triangle \( T \) is formed by three vertices of \( P \), and the circumcircle of \( T \) contains \( P \). For any edge \( \overline{p_a p_b} \) of \( T \), there exists a vertex \( p_c \) between \( p_a \) and \( p_b \) such that the circumcircle of \( T_{ab,c} \) contains \( P \).
+    \\
+    \textbf{Proof}
+    \\
+    Let \( p_i, p_j, p_k \) be three vertices defining the triangle \( T_{ij,k} \). Without loss of generality, consider the edge \( \overline{p_jp_k} \) and its corresponding arc on the circumcircle. There exists \( c \in (i, j) \) such that for every \( a \in (i, j) \), the circumcircle of \( T_{ij,c} \) contains \( p_a \).
+    Now, we examine two cases for \( p_c \):
+    \\
+    \textbf{Case 1: \( p_c \) lies on the circumcircle of \( T_{ij,k} \)}
+    If \( p_c \) is on the circumcircle of \( T_{ij,k} \), then the circumcircle of \( T_{j,k,c} \) is the same as that of \( T_{ij,k} \). Thus, the lemma holds.
+    \\
+    \textbf{Case 2: \( p_c \) lies inside the circumcircle of \( T_{ij,k} \)}
+    \begin{figure*}[h]
+        \centering
+        \includegraphics[width=0.9\textwidth]{HW5_Q2_Proof_Helper_Graph.jpg}
+        \label{fig:q2_proof}
+    \end{figure*}
+    Construct a quadrilateral with vertices \( p_j, p_c, p_k, D \) that forms a cyclic quadrilateral. By the properties of cyclic quadrilaterals:
+    \[
+        \angle A + \angle D = \pi \quad \text{and} \quad \angle B + \angle C = \pi.
+    \]
+    Using these properties:
+    \[
+        \angle A + \angle B = \pi - \angle C < \pi - \angle D \implies \angle A > \angle D.
+    \]
+    For any point \( z \) inside or on the circumcircle, it cannot satisfy \( \angle p_j z p_k > \angle p_j p_c p_k \). Thus, \( z \) must lie outside the circumcircle of \( T_{ij,k} \), ensuring that the circumcircle of \( T_{ij,c} \) contains all points between the arc \( p_j p_c p_k \). Hence, the lemma is proved.
+    \\
+    \textbf{Triangulation Construction}
     \begin{enumerate}
-        \item Order points in clock-wise order $\{p_1, ..., p_n\}$.
-
-        \item Pick the \textbf{longest side} from \textbf{diagonal} or \textbf{side} of $P$: $P_i, P_j$.
-
-        \item Pick the third point $P_k$ such that $P_k$ is the neighbor of point $p_i$ OR $p_j$. WLOG, 
-        pick the neighbor of $p_i$ as the third point. We denote the third point as $P_{i+1}$ or $P_{j-1}$.
-        \textbf{Note:} This $P_k$ is on the opposite arc from $P_i P_j$.
-        \item Form the first triangle as $\triangle P_i P_j P_k$:
-        \begin{enumerate}
-            \item Then we iteratively add the rest of the polygon of the ``half'' of the polygon as:
-            \\
-            \textbf{Note:} The neighbor of $P_{i + n}$ is $P_{j - 1}$ and $P_{j - 3}$.
-            \[
-                P_j P_{j+1} P_{j+2}, \dots, P_{j} P_{i + n} P_{j-1}
-            \]
-
-            \item For the rest of the ``half'' of the polygon:
-            \\
-            \textbf{Note:} The neighbor of $P_{j + m}$ is $P_{i - 1}$ and $P_{i - 3}$.
-            \[
-                P_i P_j P_{j+1}, \dots, \dots, P_{i} P_{j + m} P_{i-1}.
-            \]
-        \end{enumerate}
-\end{enumerate}
-
+        \item Start with three consecutive vertices \( p_i, p_{i+1}, p_{i+2} \) such that the circumcircle of \( T_{p_i p_{i+1} p_{i+2}} \) contains \( P \).
+        \item For each new triangle \( T \), select any edge \( \overline{p_a p_b} \). If there are no points of \( P \) within the range of vertices \( \overline{p_a p_b} \), skip this edge. Otherwise, find a point \( p_c \) such that the circumcircle of \( T_{p_a p_b p_c} \) contains \( P \).
+        \item Repeat this process iteratively, ensuring that every newly constructed triangle satisfies the condition that its circumcircle contains \( P \).
+    \end{enumerate}
+        
+    This method guarantees that the entire polygon \( P \) is contained within the circumcircle of the final triangulation.
 \end{proof}
 
+\newpage
+
 \subsection*{PROBLEM 17}
+
+\subsubsection*{General Algorithm Thoughts: }
+\begin{enumerate}
+    \item \textbf{Construct the Voronoi diagram} for all sites.
+    \item \textbf{For each Voronoi cell}, examine its corners (vertices).
+    \item \textbf{Check if any corner is at a distance} $\geq l + r$ \textbf{from its associated site}.
+    \begin{itemize}
+        \item \textbf{Reasoning}: Corners are the farthest points within a cell from the site.
+        \item They are \textbf{equidistant to the site and neighboring sites}.
+        \item If a corner is at distance $\geq l + r$ from the site, it is also that far from neighboring sites.
+    \end{itemize}
+    \item \textbf{Conclusion}: If such a corner exists, the site is "good" because all points at that corner are sufficiently distant from all relevant sites.
+\end{enumerate}
+
+\subsubsection*{Potentially A More Refined and Rigorous Version}
 The algorithm identifies all "good" points by first constructing the Voronoi diagram of the given points, which efficiently captures proximity relationships in \( O(n \log n) \) time. 
 For each point \( p_i \), it examines only its neighboring points in the Voronoi diagram, as these are the only ones that could potentially interfere with placing a new circle. By computing the angular intervals where a circle of radius \( \ell \) touching \( C_i \) would intersect any neighboring \( C_j \), 
 the algorithm determines the directions that are blocked. If there exists at least one direction where such interference does not occur, the point \( p_i \) is therefore "good".
