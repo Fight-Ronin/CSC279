@@ -1,313 +1,3 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{array}
-\usetikzlibrary{trees}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{multirow}
-\usepackage{dcolumn}
-\usepackage{verbatim}
-\usepackage{booktabs}
-\usepackage{listings}
-\usepackage{array}
-\usepackage{xcolor}
-
-\newcolumntype{2}{D{.}{}{2.0}}
-
-\title{CSC279 HW5}
-\author{Hanzhang Yin}
-\date{Nov/22/2023}
-
-\begin{document}
-
-\maketitle
-
-\lstset{ 
-    language=Python, % Specify language
-    basicstyle=\ttfamily\footnotesize, % Font style
-    keywordstyle=\color{blue}, % Keywords color
-    commentstyle=\color{green!60!black}, % Comment color
-    stringstyle=\color{red}, % String color
-    numbers=left, % Line numbers on the left
-    numberstyle=\tiny\color{gray}, % Line number style
-    stepnumber=1, % Number every line
-    numbersep=5pt, % Line number separation
-    showstringspaces=false, % Don't show spaces in strings
-    breaklines=true, % Break lines if necessary
-    frame=single, % Frame around code
-    captionpos=b, % Caption position (b for bottom)
-    tabsize=4, % Tab size
-}
-
-\subsection*{Collaborator}
-Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
-
-\subsection*{PROBLEM 15}
-\\
-\textbf{Answer: }
-
-\begin{enumerate}
-    \item Assume $q$ is inside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Arrange all points on the circumference of a circle like regular convex n-polygon enclosing point $q$ as its center. 
-    If the algorithm is deterministic and assumes an easy case, some points remain unvisited. For those unvisited point, we one of them closer.
-    Therefore, the algorithm can not find the correct closest point and outputting incorrect results.
-    \item Assume $q$ is outside $P$. We want to find the closest point to $q$ in $\{p_1, \dots, p_n\}$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Place all points on a quarter-circle like regular convex n-polygon enclosing point $q$ while ensuring $P$ is convex and non-enclosing.
-    Assume easy, then there will be some point that the algorithm (deterministic) will not visit. For an unvisited point, we move it closer. 
-    Therefore, the algorithm can not find the correct closest point and outputting incorrect results.
-    \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Similar to Q1, but this time we move an unvisited point further.
-    \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ in $\{p_1, \dots, p_n\}$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Similar to Q2, but this time we move an unvisited point further.
-    \item Assume $q$ is inside $P$. We want to find the closest point to $q$ on $P$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Similar to Q1 again, The number of edges equals the number of points, so we still need at least $O(n)$ runtime.
-    \item Assume $q$ is outside $P$. We want to find the closest point to $q$ on $P$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Easy and can be solved within $O(logn)$. 
-    \\
-    The algorithm finds the closest point to \( q \) on a convex polygon \( P \) in \( O(\log n) \) time using the unimodal nature of the distance function from \( q \) to \( P \). 
-    Using ternary search on the edges of \( P \), it narrows the search interval until the closest edge is identified, and then computes the closest point on that edge. 
-    The convexity of \( P \) ensures the unimodal property, guaranteeing the correctness of the ternary search.
-    
-    \begin{verbatim}
-        def closest_point_on_convex_polygon(q, P):
-            n = len(P)
-            low = 0
-            high = n - 1
-
-        while high - low > 3:
-            m1 = low + (high - low) // 3
-            m2 = high - (high - low) // 3
-
-            D_m1 = distance_to_edge(q, P[m1], P[(m1 + 1) % n])
-            D_m2 = distance_to_edge(q, P[m2], P[(m2 + 1) % n])
-
-            if D_m1 < D_m2:
-                high = m2
-            else:
-                low = m1
-
-        min_dist = float('inf')
-        closest_point = None
-
-        for i in range(low, high + 1):
-            p1 = P[i]
-            p2 = P[(i + 1) % n]
-            c = closest_point_on_segment(q, p1, p2)
-            D = distance(q, c)
-            if D < min_dist:
-                min_dist = D
-                closest_point = c
-
-        return closest_point
-    \end{verbatim}
-    \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ on $P$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Similar to Q3, so similar argument can be made.
-    \item Assume $q$ is outside $P$. We want to find the farthest point to $q$ on $P$.
-    \\
-    \textbf{Reasoning: }
-    \\
-    Hard and required $\Omega(n)$ runtime. Similar to Q4. The farthest point must lie on the circumcircle as all other points are on an n-gon, so similar argument can be made.
-\end{enumerate}
-
-\newpage
-
-\subsection*{PROBLEM 16}
-
-\begin{proof}
-    \textbf{Theorem: }
-    \\
-    A convex polygon is fully contained within the largest circumcircle formed by three of its consecutive vertices.
-    \\
-    \textbf{Lemma: }
-    \\
-    Let \( P = \{p_1, p_2, \ldots, p_n\} \) represent a convex polygon. Suppose a triangle \( T \) is formed by three vertices of \( P \), and the circumcircle of \( T \) contains \( P \). For any edge \( \overline{p_a p_b} \) of \( T \), there exists a vertex \( p_c \) between \( p_a \) and \( p_b \) such that the circumcircle of \( T_{ab,c} \) contains \( P \).
-    \\
-    \textbf{Proof}
-    \\
-    Let \( p_i, p_j, p_k \) be three vertices defining the triangle \( T_{ij,k} \). Without loss of generality, consider the edge \( \overline{p_jp_k} \) and its corresponding arc on the circumcircle. There exists \( c \in (i, j) \) such that for every \( a \in (i, j) \), the circumcircle of \( T_{ij,c} \) contains \( p_a \).
-    \\
-    Now, we examine two cases for \( p_c \):
-    \\
-    \textbf{Case 1: \( p_c \) lies on the circumcircle of \( T_{ij,k} \)}
-    If \( p_c \) is on the circumcircle of \( T_{ij,k} \), then the circumcircle of \( T_{j,k,c} \) is the same as that of \( T_{ij,k} \). Thus, the lemma holds.
-    \\
-    \textbf{Case 2: \( p_c \) lies inside the circumcircle of \( T_{ij,k} \)}
-    \begin{figure*}[h]
-        \centering
-        \includegraphics[width=0.9\textwidth]{HW5_Q2_Proof_Helper_Graph.png}
-        \label{fig:q2_proof}
-    \end{figure*}
-    Construct a quadrilateral with vertices \( p_j, p_c, p_k, D \) that forms a cyclic quadrilateral. By the properties of cyclic quadrilaterals:
-    \[
-        \angle A + \angle D = \pi \quad \text{and} \quad \angle B + \angle C = \pi.
-    \]
-    Using these properties:
-    \[
-        \angle A + \angle B = \pi - \angle C < \pi - \angle D \implies \angle A > \angle D.
-    \]
-    For any point \( z \) inside or on the circumcircle, it cannot satisfy \( \angle p_j z p_k > \angle p_j p_i p_k \). Thus, \( z \) must lie outside the circumcircle of \( T_{ij,k} \), ensuring that the circumcircle of \( T_{ij,c} \) contains all points between the arc \( p_j p_i p_k \). Hence, the lemma is proved.
-    \\
-    \textbf{Triangulation Construction}
-    \begin{enumerate}
-        \item Start with three consecutive vertices \( p_i, p_{i+1}, p_{i+2} \) such that the circumcircle of \( T_{p_i p_{i+1} p_{i+2}} \) contains \( P \).
-        \item For each new triangle \( T \), select any edge \( \overline{p_a p_b} \). If there are no points of \( P \) within the range of vertices \( \overline{p_a p_b} \), skip this edge. Otherwise, find a point \( p_c \) such that the circumcircle of \( T_{p_a p_b p_c} \) contains \( P \).
-        \item Repeat this process iteratively, ensuring that every newly constructed triangle satisfies the condition that its circumcircle contains \( P \).
-    \end{enumerate}
-    \\
-    This method guarantees that the entire polygon \( P \) is contained within the circumcircle of the final triangulation.
-\end{proof}
-
-\newpage
-
-\subsection*{PROBLEM 17}
-
-\subsubsection*{General Algorithm Thoughts: }
-\begin{enumerate}
-    \item \textbf{Construct the Voronoi diagram} for all sites.
-    \item \textbf{For each Voronoi cell}, examine its corners (vertices).
-    \item \textbf{Check if any corner is at a distance} $\geq l + r$ \textbf{from its associated site}.
-    \begin{itemize}
-        \item \textbf{Reasoning}: Corners are the farthest points within a cell from the site.
-        \item They are \textbf{equidistant to the site and neighboring sites}.
-        \item If a corner is at distance $\geq l + r$ from the site, it is also that far from neighboring sites.
-    \end{itemize}
-    \item \textbf{Conclusion}: If such a corner exists, the site is "good" because all points at that corner are sufficiently distant from all relevant sites.
-\end{enumerate}
-
-\subsubsection*{Potentially A More Refined and Rigorous Version}
-The algorithm identifies all "good" points by first constructing the Voronoi diagram of the given points, which efficiently captures proximity relationships in \( O(n \log n) \) time. 
-For each point \( p_i \), it examines only its neighboring points in the Voronoi diagram, as these are the only ones that could potentially interfere with placing a new circle. By computing the angular intervals where a circle of radius \( \ell \) touching \( C_i \) would intersect any neighboring \( C_j \), 
-the algorithm determines the directions that are blocked. If there exists at least one direction where such interference does not occur, the point \( p_i \) is therefore "good".
-
-\begin{verbatim}
-# Helper Functions
-def compute_interfering_angles(p_i, p_j, r, l, d_ij):
-    # Calculate the angle between p_i and p_j
-    delta_x = p_j.x - p_i.x
-    delta_y = p_j.y - p_i.y
-    alpha = atan2(delta_y, delta_x)
-
-    # Law of Cosines to find the angular width
-    cos_theta = (d_ij**2 + (r + l)**2 - (r + l)**2) / (2 * d_ij * (r + l))
-    if abs(cos_theta) <= 1:
-        theta = acos(cos_theta)
-        # The interfering interval is [alpha - theta, alpha + theta]
-        interval = [(alpha - theta) % (2 * pi), (alpha + theta) % (2 * pi)]
-        # Handle interval wrapping around 2pi
-        if interval[0] > interval[1]:
-            return [(interval[0], 2 * pi), (0, interval[1])]
-        else:
-            return [interval]
-    else:
-        # Circles do not intersect; no interfering angles
-        return []
-
-# Main Function
-def find_good_points(P, r, l):
-    # Construct the Voronoi diagram
-    # Need O(nlogn)
-    V = voronoi_diagram(P)
-
-    good_points = []
-
-    # For each point p_i
-    # Need O(n)
-    for p_i in P:
-        interfering_angles = []  # List to store interfering angular intervals
-
-        # Get neighboring points in the Voronoi diagram
-        neighbors = V.get_neighbors(p_i)
-
-        # For each neighbor p_j
-        for p_j in neighbors:
-            d_ij = distance(p_i, p_j)
-
-            # Only consider neighbors that may interfere
-            if d_ij < 2 * (r + l):
-                # Compute the angular intervals of interference
-                angles = compute_interfering_angles(p_i, p_j, r, l, d_ij)
-                interfering_angles.extend(angles)
-
-        # Compute the union of interfering intervals
-        interfering_union = union_of_intervals(interfering_angles)
-
-        # Determine the complement of the union over [0, 2pi)
-        non_interfering_angles = complement_of_intervals(interfering_union, 0, 2 * pi)
-
-        # If there is at least one non-interfering angle, p_i is good
-        if non_interfering_angles:
-            good_points.append(p_i)
-
-    return good_points
-\end{verbatim}
-
-\newpage
-
-\subsection*{PROBLEM 18}
-
-\textbf{Summary: }
-The randomized incremental Delaunay triangulation algorithm employs a history DAG to efficiently manage point insertion and triangle updates while ensuring the Delaunay property. 
-The algorithm inserts points in random order, using the history DAG for \(O(\log n)\) expected-time point location, followed by triangle splitting and recursive edge flipping to maintain the Delaunay criterion. 
-With an expected time complexity of \(O(n \log n)\) and space complexity of \(O(n \log n)\) (including the history DAG), it offers good average-case performance and practical simplicity.
-\\
-\textbf{Result: }
-\\
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{@{}cccc@{}}
-    \toprule
-    \textbf{Processing \( n \)} & \textbf{Max Depth} & \textbf{Avg Depth} \\ \midrule
-    10 & 8  & 5.45273631840796 \\
-    20 & 12 & 7.750312109862672 \\
-    30 & 18 & 8.939478067740144 \\
-    40 & 17 & 9.610121836925961 \\
-    50 & 21 & 9.93361327734453 \\ \bottomrule
-    \end{tabular}
-    \caption{Depth statistics for different values of \( n \)}
-\end{table}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{Figure_1.png}
-    \label{fig:model}
-\end{figure*}
-
-\hspace{0.01cm}
-\\
-\textbf{Short Analysis: }
-\\
-The result I got is reasonable, with the average depths increasing in $log n$ as expected, indicating that the algorithm effectively maintains a balanced DAG structure. 
-Although the maximum depths are somewhat higher than theoretical predictions, they remain within an acceptable range considering the algorithm's randomness and the potential for local depth increases during edge legalization. 
-\\
-\textbf{Implementation: }
-\\
-The following code of randomized Delaunay triangulation algorithm with history DAG was implemented in Python (I fixed the random seed = 20 for better representation):
-\begin{lstlisting}
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List, Set, Tuple, Optional
@@ -455,7 +145,7 @@ class DelaunayTriangulation:
 
     @staticmethod
     def find_index_in_neighbour(triangulation: Triangulation, triangle_index: int, 
-                                neighbour_index: int) -> int:
+                              neighbour_index: int) -> int:
         for i in range(3):
             if triangulation.get_triangle(neighbour_index).get_neighbour(i) == triangle_index:
                 return i
@@ -564,7 +254,7 @@ class DelaunayTriangulation:
 
     @staticmethod
     def get_triangulation(triangulation: Triangulation, dag: DagNode, 
-                            points: List[Point2D]):
+                         points: List[Point2D]):
         shuffled_points = points.copy()
         random.shuffle(shuffled_points)
         
@@ -660,7 +350,7 @@ class DelaunayTest:
         if include_random:
             num_random = n * n // 4  # Add 25% more random points
             random_points = [Point2D(random.random(), random.random()) 
-                            for _ in range(num_random)]
+                           for _ in range(num_random)]
             points.extend(random_points)
         
         return points
@@ -718,7 +408,7 @@ class DelaunayTest:
 
     @staticmethod
     def plot_triangulation(triangulation: Triangulation, points: List[Point2D], 
-                            title: str = "Delaunay Triangulation") -> None:
+                          title: str = "Delaunay Triangulation") -> None:
         """Visualize the triangulation."""
         plt.figure(figsize=(12, 12))
         
@@ -779,7 +469,7 @@ def run_comprehensive_test():
         
         # Visualize
         DelaunayTest.plot_triangulation(triangulation, points, 
-                                        f"Delaunay Triangulation ({n}x{n} grid)")
+                                      f"Delaunay Triangulation ({n}x{n} grid)")
         
         # Print statistics
         print(f"Results for {n}x{n} grid:")
@@ -798,11 +488,11 @@ def run_comprehensive_test():
     # Plot depths
     plt.subplot(121)
     plt.plot([r['grid_size'] for r in results],
-                [r['dag_stats']['max_depth'] for r in results],
-                'ro-', label='Max Depth')
+             [r['dag_stats']['max_depth'] for r in results],
+             'ro-', label='Max Depth')
     plt.plot([r['grid_size'] for r in results],
-                [r['dag_stats']['avg_depth'] for r in results],
-                'bo-', label='Avg Depth')
+             [r['dag_stats']['avg_depth'] for r in results],
+             'bo-', label='Avg Depth')
     plt.xlabel('Grid Size')
     plt.ylabel('Depth')
     plt.title('DAG Depth Analysis')
@@ -812,11 +502,11 @@ def run_comprehensive_test():
     # Plot nodes
     plt.subplot(122)
     plt.plot([r['grid_size'] for r in results],
-                [r['dag_stats']['total_nodes'] for r in results],
-                'go-', label='Total Nodes')
+             [r['dag_stats']['total_nodes'] for r in results],
+             'go-', label='Total Nodes')
     plt.plot([r['grid_size'] for r in results],
-                [r['dag_stats']['leaf_nodes'] for r in results],
-                'mo-', label='Leaf Nodes')
+             [r['dag_stats']['leaf_nodes'] for r in results],
+             'mo-', label='Leaf Nodes')
     plt.xlabel('Grid Size')
     plt.ylabel('Number of Nodes')
     plt.title('DAG Size Analysis')
@@ -833,7 +523,3 @@ if __name__ == "__main__":
     
     # Run the comprehensive test
     run_comprehensive_test()
-\end{lstlisting}
-
-
-\end{document}
