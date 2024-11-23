@@ -86,42 +86,8 @@ Chenxi Xu, Yekai Pan, Yiling Zou, Boyi Zhang
     \\
     Easy and can be solved within $O(logn)$. 
     \\
-    The algorithm finds the closest point to \( q \) on a convex polygon \( P \) in \( O(\log n) \) time using the unimodal nature of the distance function from \( q \) to \( P \). 
-    Using ternary search on the edges of \( P \), it narrows the search interval until the closest edge is identified, and then computes the closest point on that edge. 
-    The convexity of \( P \) ensures the unimodal property, guaranteeing the correctness of the ternary search.
-    
-    \begin{verbatim}
-        def closest_point_on_convex_polygon(q, P):
-            n = len(P)
-            low = 0
-            high = n - 1
-
-        while high - low > 3:
-            m1 = low + (high - low) // 3
-            m2 = high - (high - low) // 3
-
-            D_m1 = distance_to_edge(q, P[m1], P[(m1 + 1) % n])
-            D_m2 = distance_to_edge(q, P[m2], P[(m2 + 1) % n])
-
-            if D_m1 < D_m2:
-                high = m2
-            else:
-                low = m1
-
-        min_dist = float('inf')
-        closest_point = None
-
-        for i in range(low, high + 1):
-            p1 = P[i]
-            p2 = P[(i + 1) % n]
-            c = closest_point_on_segment(q, p1, p2)
-            D = distance(q, c)
-            if D < min_dist:
-                min_dist = D
-                closest_point = c
-
-        return closest_point
-    \end{verbatim}
+    The tangents of the polygon can be found in $O(logn)$. The closest point will lie between these two tangents. Starting from the tangent points, we perform a binary search to find the closest point based on proximity. To determine the initial search direction, we compare the distances of adjacent points to decide where to begin. For example, given points 2 and 10, we check if 1 of 3 to determine which direction to start.
+    Lastly, we also evaluate the connecting edges, as the closest point might lie on one of them.
     \item Assume $q$ is inside $P$. We want to find the farthest point to $q$ on $P$.
     \\
     \textbf{Reasoning: }
