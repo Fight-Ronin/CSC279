@@ -358,7 +358,7 @@ def create_bounding_triangle(points: List[Point2D]) -> Triangle2D:
     return Triangle2D(p1=p1, p2=p2, p3=p3)
 
 def generate_grid_points(n: int) -> List[Point2D]:
-    """Generate an n×n grid of points."""
+    """Generate an nxn grid of points."""
     points = []
     for i in np.linspace(0, 1, n):
         for j in np.linspace(0, 1, n):
