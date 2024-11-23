@@ -446,7 +446,8 @@ def run_comprehensive_test():
         
         # Generate test points
         points = DelaunayTest.generate_test_points(n)
-        print(f"Generated {len(points)} points")
+        num_points = len(points)
+        print(f"Generated {num_points} points")
         
         # Create initial triangulation
         bounding_tri = DelaunayTest.create_bounding_triangle(points)
@@ -462,7 +463,7 @@ def run_comprehensive_test():
         
         results.append({
             'grid_size': n,
-            'num_points': len(points),
+            'num_points': num_points,
             'is_delaunay': is_delaunay,
             'dag_stats': dag_stats
         })
@@ -472,8 +473,7 @@ def run_comprehensive_test():
                                       f"Delaunay Triangulation ({n}x{n} grid)")
         
         # Print statistics
-        print(f"Results for {n}x{n} grid:")
-        print(f"- Number of points: {len(points)}")
+        print(f"Results for {n}x{n} grid ({num_points} points):")
         print(f"- Delaunay property satisfied: {is_delaunay}")
         print(f"- DAG Statistics:")
         print(f"  - Maximum depth: {dag_stats['max_depth']}")
@@ -485,33 +485,69 @@ def run_comprehensive_test():
     # Plot summary statistics
     plt.figure(figsize=(12, 6))
     
-    # Plot depths
+    # Plot depths vs number of points
     plt.subplot(121)
-    plt.plot([r['grid_size'] for r in results],
-             [r['dag_stats']['max_depth'] for r in results],
-             'ro-', label='Max Depth')
-    plt.plot([r['grid_size'] for r in results],
-             [r['dag_stats']['avg_depth'] for r in results],
-             'bo-', label='Avg Depth')
-    plt.xlabel('Grid Size')
+    points_list = [r['num_points'] for r in results]
+    max_depths = [r['dag_stats']['max_depth'] for r in results]
+    avg_depths = [r['dag_stats']['avg_depth'] for r in results]
+    
+    plt.plot(points_list, max_depths, 'ro-', label='Max Depth')
+    plt.plot(points_list, avg_depths, 'bo-', label='Avg Depth')
+    
+    # Add grid size annotations
+    for i, (points, max_d, avg_d) in enumerate(zip(points_list, max_depths, avg_depths)):
+        plt.annotate(f'{grid_sizes[i]}×{grid_sizes[i]}', 
+                    (points, max_d),
+                    textcoords="offset points",
+                    xytext=(0,10),
+                    ha='center')
+        plt.annotate(f'({points}, {max_d:.1f})', 
+                    (points, max_d),
+                    textcoords="offset points",
+                    xytext=(0,-15),
+                    ha='center',
+                    fontsize=8)
+    
+    plt.xlabel('Number of Points')
     plt.ylabel('Depth')
-    plt.title('DAG Depth Analysis')
+    plt.title('DAG Depth vs Number of Points')
     plt.legend()
     plt.grid(True)
     
-    # Plot nodes
+    # Plot nodes vs number of points
     plt.subplot(122)
-    plt.plot([r['grid_size'] for r in results],
-             [r['dag_stats']['total_nodes'] for r in results],
-             'go-', label='Total Nodes')
-    plt.plot([r['grid_size'] for r in results],
-             [r['dag_stats']['leaf_nodes'] for r in results],
-             'mo-', label='Leaf Nodes')
-    plt.xlabel('Grid Size')
+    total_nodes = [r['dag_stats']['total_nodes'] for r in results]
+    leaf_nodes = [r['dag_stats']['leaf_nodes'] for r in results]
+    
+    plt.plot(points_list, total_nodes, 'go-', label='Total Nodes')
+    plt.plot(points_list, leaf_nodes, 'mo-', label='Leaf Nodes')
+    
+    # Add grid size annotations
+    for i, (points, nodes) in enumerate(zip(points_list, total_nodes)):
+        plt.annotate(f'{grid_sizes[i]}×{grid_sizes[i]}', 
+                    (points, nodes),
+                    textcoords="offset points",
+                    xytext=(0,10),
+                    ha='center')
+        plt.annotate(f'({points}, {nodes})', 
+                    (points, nodes),
+                    textcoords="offset points",
+                    xytext=(0,-15),
+                    ha='center',
+                    fontsize=8)
+    
+    plt.xlabel('Number of Points')
     plt.ylabel('Number of Nodes')
-    plt.title('DAG Size Analysis')
+    plt.title('DAG Size vs Number of Points')
     plt.legend()
     plt.grid(True)
+    
+    # Print numerical results
+    print("\nNumerical Results:")
+    print("Points\tGrid\tMax Depth\tAvg Depth\tTotal Nodes\tLeaf Nodes")
+    print("-" * 75)
+    for r in results:
+        print(f"{r['num_points']}\t{r['grid_size']}×{r['grid_size']}\t{r['dag_stats']['max_depth']}\t{r['dag_stats']['avg_depth']:.2f}\t{r['dag_stats']['total_nodes']}\t{r['dag_stats']['leaf_nodes']}")
     
     plt.tight_layout()
     plt.show()

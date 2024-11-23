@@ -275,21 +275,22 @@ The randomized incremental Delaunay triangulation algorithm employs a history DA
 The algorithm inserts points in random order, using the history DAG for \(O(\log n)\) expected-time point location, followed by triangle splitting and recursive edge flipping to maintain the Delaunay criterion. 
 With an expected time complexity of \(O(n \log n)\) and space complexity of \(O(n \log n)\) (including the history DAG), it offers good average-case performance and practical simplicity.
 \\
-\textbf{Result: }
+\textbf{Numerical Result: }
 \\
 \begin{table}[h!]
     \centering
-    \begin{tabular}{@{}cccc@{}}
+    \begin{tabular}{@{}cccccc@{}}
     \toprule
-    \textbf{Processing \( n \)} & \textbf{Max Depth} & \textbf{Avg Depth} \\ \midrule
-    10 & 8  & 5.45273631840796 \\
-    20 & 12 & 7.750312109862672 \\
-    30 & 18 & 8.939478067740144 \\
-    40 & 17 & 9.610121836925961 \\
-    50 & 21 & 9.93361327734453 \\ \bottomrule
+    \textbf{Points} & \textbf{Grid} & \textbf{Max Depth} & \textbf{Avg Depth} & \textbf{Total Nodes} \\ \midrule
+    25  & \(5 \times 5\)   & 3 & 1.94 & 104  \\
+    100 & \(10 \times 10\) & 4 & 2.03 & 427  \\
+    225 & \(15 \times 15\) & 5 & 2.05 & 944  \\
+    400 & \(20 \times 20\) & 4 & 2.03 & 1705 \\
+    625 & \(25 \times 25\) & 5 & 2.05 & 2688 \\ \bottomrule
     \end{tabular}
-    \caption{Depth statistics for different values of \( n \)}
-\end{table}
+    \caption{Depth and node statistics for randomized Delaunay triangulation on different grid sizes.}
+    \label{tab:numerical-results}
+    \end{table}
 
 \begin{figure*}[h]
     \centering
